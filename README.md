@@ -3,7 +3,7 @@ Nhóm làm việc 01
 
 # Thành viên
 
-1. Phạm Năng Khang
+1. Phạm Năng Khang(24100032)githubID: phamkheng
 
 2. Trần Quốc Việt Hùng
 

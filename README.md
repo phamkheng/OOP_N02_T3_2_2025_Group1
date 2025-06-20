@@ -3,10 +3,10 @@ Nhóm làm việc 01
 
 # Thành viên
 
-Phạm Khang
+1. Phạm Năng Khang
 
-Nguyễn Lệ Thu
+2. Trần Quốc Việt Hùng
 
-Trần Quốc Việt Hùng
+3. Nguyễn Lệ Thu 
 
-# Ưng dung: Xây dựng ứng dụng quản lý thư viện
+# ứng dụng: Xây dựng ứng dụng quản lý thư viện

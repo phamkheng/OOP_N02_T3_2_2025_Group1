@@ -7,6 +7,5 @@ Nhóm làm việc 01
 
 2. Trần Quốc Việt Hùng
 
-3. Nguyễn Lệ Thu 
 
 # ứng dụng: Xây dựng ứng dụng quản lý thư viện

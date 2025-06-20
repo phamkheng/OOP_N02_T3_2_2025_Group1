@@ -5,7 +5,7 @@ Nhóm làm việc 01
 
 1. Phạm Năng Khang(24100032)githubID: phamkheng
 
-2. Trần Quốc Việt Hùng
+2. Trần Quốc Việt Hùng(24100015)githubID: sathu567
 
 
 # ứng dụng: Xây dựng ứng dụng quản lý thư viện

@@ -11,3 +11,22 @@ Nhóm làm việc 01
 # ứng dụng: Xây dựng ứng dụng quản lý thư viện
 
 # phân tích đối tượng
+
+Book
++ book_id
++ book_title
++ genre
++ author
++ avaiable
+
+Reader
++ reader_id
++ name
++ email
+
+Loan
++ book_id
++ Reader
++ borrow_date
++ return_date
+

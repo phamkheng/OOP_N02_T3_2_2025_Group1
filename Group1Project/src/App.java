@@ -1,11 +1,16 @@
 public class App {
     public static void main(String[] args) throws Exception {
         //Main
-        System.out.println("Hello, World!");
+        //System.out.println("Hello, World!");
 
-        testNumber test = new testNumber();
+        //testNumber test = new testNumber();
 
-        test.test();
-        test.testSaThu();
+        //test.test();
+        //test.testSaThu();
+
+        testPassObject test = new testPassObject();
+
+        test.PassObject();
+
     }
 }

@@ -8,9 +8,8 @@ public class App {
         //test.test();
         //test.testSaThu();
 
-        testPassObject test = new testPassObject();
-
-        test.PassObject();
+        testBreakAndContinue test = new testBreakAndContinue();
+        test.breakandcontinue();
 
     }
 }

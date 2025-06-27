@@ -1,4 +1,5 @@
 public class testPassObject {
+    
     static void f(Number m) {
         m.i = 15;
     }

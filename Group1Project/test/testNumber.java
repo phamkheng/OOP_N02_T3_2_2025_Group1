@@ -1,8 +1,16 @@
+
+import java.lang.Integer;
 public class testNumber {
     public void test() {
 
-        Number n1 = new Number();
-        Number n2 = new Number();
+        Number n1 = new Number(47);
+
+
+       // Integer i1 = new Integer(47);
+
+
+
+        Number n2 = new Number(10);
         n1.i = 2;
         n2.i = 5;
         n1 = n2;
@@ -20,8 +28,8 @@ public class testNumber {
 
     public void testSaThu() {
 
-        Number n1 = new Number();
-        Number n2 = new Number();
+        Number n1 = new Number(74);
+        Number n2 = new Number(14);
         n1.i = 2;
         n2.i = 5;
 

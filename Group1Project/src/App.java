@@ -8,8 +8,8 @@ public class App {
         //test.test();
         //test.testSaThu();
 
-        testBreakAndContinue test = new testBreakAndContinue();
-        test.breakandcontinue();
+        testCakeCase test = new testCakeCase();
+        test.cakecase();
 
     }
 }

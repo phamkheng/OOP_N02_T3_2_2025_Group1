@@ -1,3 +1,4 @@
+
 public class App {
     public static void main(String[] args) throws Exception {
         //Main
@@ -5,11 +6,11 @@ public class App {
 
         //testNumber test = new testNumber();
 
-        //test.test();
-        //test.testSaThu();
+        //testCakeCase test = new testCakeCase();
+        //test.cakecase();
 
-        testCakeCase test = new testCakeCase();
-        test.cakecase();
+        randNum test = new randNum();
+        test.display();
 
     }
 }

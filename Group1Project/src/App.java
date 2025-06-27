@@ -9,8 +9,10 @@ public class App {
         //testCakeCase test = new testCakeCase();
         //test.cakecase();
 
-        randNum test = new randNum();
-        test.display();
-
+        //randNum test = new randNum();
+        //test.display();
+  
+        //ShortCircuit test = new ShortCircuit();
+        //test.display();
     }
 }

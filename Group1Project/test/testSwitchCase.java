@@ -1,5 +1,5 @@
-public class testCakeCase {
-    public void cakecase() {
+public class testSwitchCase {
+    public void run() {
         for (int i = 0; i < 100; i++) {
         char c = (char) (Math.random() * 26 + 'a');
         switch(c) {

@@ -1,17 +1,17 @@
 public class Book {
-    String book_id;
-    String book_title;
+    String title;
     String author;
-    String genre;
-    Boolean avaiable;
+    int numPages;
 
-    String setName(String name_book) {
+    public Book() { }
 
-        book_title = name_book;
-        return book_title;
+    public Book(String title, String author, int numPages) {
+        this.title = title;
+        this.author = author;
+        this.numPages = numPages;
     }
 
-    void getName() {
-        System.out.println("Ten sach:" + book_title);
-    }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public int getNumPages() { return numPages; }
 }

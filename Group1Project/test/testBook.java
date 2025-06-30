@@ -1,9 +1,10 @@
-public class Book {
+public class testBook {
     String title;
     String author;
     int numPages;
-    Book() {}
-    public Book(String title, String author, int numPages) {
+    
+    testBook() {}
+    public testBook(String title, String author, int numPages) {
         this.title = title;
         this.author = author;
         this.numPages = numPages;

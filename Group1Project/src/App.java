@@ -1,9 +1,6 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
-        //Main
-        //System.out.println("Hello, World!");
-
         //testNumber test = new testNumber();
 
         //testCakeCase test = new testCakeCase();
@@ -14,5 +11,8 @@ public class App {
   
         //ShortCircuit test = new ShortCircuit();
         //test.display();
+
+        testBook test = new testBook("Solo_leveling", "Chugong", 270);
+        test.display();
     }
 }

@@ -4,45 +4,45 @@ public class Time {
     private int second;
 
     public Time(int hour, int minute, int second){
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
+       setTime(hour, minute, second);
     }
 
     public int getHour() {
         return hour;
     }
-    public int setHour(int hour) {
-        this.hour = hour;
-        return (hour >= 0 && hour <= 24) ? hour : 0;
+    public Time setHour(int h) {
+        hour = (( h >= 0 && h < 24 ) ? h : 0 );
+        return this;
     }
     public int getMinute() {
         return minute;
     }
-    public int setMinhute(int minute) {
-        this.minute = minute;
-        return (minute >= 0 && minute <= 60) ? minute : 0;
+    public Time setMinute(int m) {
+        minute = (( m >= 0 && m < 60 ) ? m : 0 );
+        return this;
     }
+    
     public int getSecond() {
         return second;
     }
-    public int setSecond(int second) {
-        this.second = second;
-        return (second >= 0 && second <= 60) ? second : 0;
+    public Time setSecond(int s) {
+        second = ((s >= 0 && s < 60 ) ? s : 0 );
+        return this;
+    }
+    public Time setTime(int h, int m, int s) {
+        setHour(h);
+        setMinute(m);
+        setSecond(s);
+        return this;
     }
 
-    void display() {
-		String hour = this.hour + "";
-		String minute = this.minute + "";
-		String second = this.second + "";
-		if (hour.length() == 1)
-			hour = "0" + hour;
-		if (minute.length() == 1)
-			minute = "0" + minute;
-		if (second.length() == 1)
-			second = "0" + second;
-		System.out.println("Time " + hour + ":" + minute + ":" + second);
-	}
+    public String toString() {
 
-
+        int displayHour = (hour == 0 || hour == 12) ? 12 : hour % 12;
+        String amPm = (hour < 12) ? " AM" : " PM";
+        String minuteStr = (minute < 10) ? "0" + minute : "" + minute;
+        String secondStr = (second < 10) ? "0" + second : "" + second;
+        
+        return displayHour + ":" + minuteStr + ":" + secondStr + amPm;
+    }
 }

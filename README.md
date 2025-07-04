@@ -1,4 +1,8 @@
 # Library Management System
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Welcome+to+Our+Library+System;Built+with+Java+%26+OOP" alt="Typing SVG" />
+</p>
+
 
 **Nhóm 01 – OOP_N02_T3_2_2025**
 

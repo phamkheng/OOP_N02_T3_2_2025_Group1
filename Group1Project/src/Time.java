@@ -39,10 +39,10 @@ public class Time {
     public String toString() {
 
         int displayHour = (hour == 0 || hour == 12) ? 12 : hour % 12;
+        String hourStr = (displayHour < 10) ? "0" + displayHour : "" + displayHour;
         String amPm = (hour < 12) ? " AM" : " PM";
         String minuteStr = (minute < 10) ? "0" + minute : "" + minute;
         String secondStr = (second < 10) ? "0" + second : "" + second;
-        
-        return displayHour + ":" + minuteStr + ":" + secondStr + amPm;
+        return hourStr + ":" + minuteStr + ":" + secondStr + amPm;
     }
 }

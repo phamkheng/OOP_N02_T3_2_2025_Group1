@@ -1,28 +1,57 @@
-# OOP_N02_T3_2_2025_Group1
-Nhóm làm việc 01
+# Library Management System
 
-# Thành viên
+**Nhóm 01 – OOP_N02_T3_2_2025**
 
-1. Phạm Năng Khang(24100032)githubID: phamkheng
+---
 
-2. Trần Quốc Việt Hùng(24100015)githubID: hungspec
+## 📋 Mục lục
+- [Giới thiệu](#giới-thiệu)  
+- [Thành viên](#thành-viên)  
+- [Ứng dụng](#ứng-dụng)  
+- [Yêu cầu](#yêu-cầu)  
+- [Cài đặt & Chạy](#cài-đặt--chạy)  
+- [Cấu trúc thư mục](#cấu-trúc-thư-mục)  
+- [Mô tả đối tượng](#mô-tả-đối-tượng)  
+- [Ví dụ](#ví-dụ)  
+- [Hướng phát triển](#hướng-phát-triển)  
+- [Bản quyền](#bản-quyền)  
 
+---
 
-# ứng dụng: Xây dựng ứng dụng quản lý thư viện
+## Giới thiệu
+Đây là ứng dụng **Quản lý Thư viện** được xây dựng bằng Java, hướng đối tượng, cho phép:
 
-# phân tích đối tượng
+- Quản lý sách (Book)  
+- Quản lý bạn đọc (Reader)  
+- Theo dõi lịch sử mượn/trả (Loan)  
 
-Book
-+ book_id
-+ book_title
-+ genre
-+ author
-+ avaiable
+---
 
-Reader
-+ reader_id
-+ name
-+ email
+## Thành viên
+- **Phạm Năng Khang** (24100032) – [phamkheng](https://github.com/phamkheng)  
+- **Trần Quốc Việt Hùng** (24100015) – [hungspec](https://github.com/hungspec)  
+
+---
+
+## Ứng dụng
+Ứng dụng cho phép:
+1. Thêm, sửa, xóa sách và bạn đọc  
+2. Cho mượn sách, trả sách, xem lịch sử  
+3. Kiểm tra trạng thái sách (còn hay hết)  
+
+---
+
+## Yêu cầu
+- Java 11+  
+- Maven hoặc IDE hỗ trợ (IntelliJ/Eclipse)  
+
+---
+
+## Cài đặt & Chạy
+1. Clone dự án:
+   ```bash
+   git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
+   cd OOP_N02_T3_2_2025_Group1
 
 Loan
 + book_id

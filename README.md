@@ -13,50 +13,100 @@
 
 ---
 
-## 📋 Mục lục
-- [Giới thiệu](#giới-thiệu)  
-- [Thành viên](#thành-viên)  
-- [Ứng dụng](#ứng-dụng)  
-- [Yêu cầu](#yêu-cầu)  
-- [Cài đặt & Chạy](#cài-đặt--chạy)  
-- [Cấu trúc thư mục](#cấu-trúc-thư-mục)  
-- [Mô tả đối tượng](#mô-tả-đối-tượng)  
-- [Ví dụ](#ví-dụ)  
-- [Hướng phát triển](#hướng-phát-triển)  
-- [Bản quyền](#bản-quyền)  
+📋 Mục lục
 
----
+Giới thiệu
 
-## Giới thiệu
-Đây là ứng dụng **Quản lý Thư viện** được xây dựng theo hướng lập trình hướng đối tượng (OOP), cho phép:
+Thành viên
 
-- Quản lý sách (Book)  
-- Quản lý bạn đọc (Reader)  
-- Theo dõi lịch sử mượn/trả (Loan)  
+Ứng dụng
 
----
+Yêu cầu
 
-## Thành viên
-- **Phạm Năng Khang** (24100032) – [phamkheng](https://github.com/phamkheng)  
-- **Trần Quốc Việt Hùng** (24100015) – [hungspec](https://github.com/hungspec)  
+Cài đặt--Chạy
 
----
+Cấu trúc thư mục
 
-## Ứng dụng
-Ứng dụng cho phép:
-1. Thêm, sửa, xóa sách và bạn đọc  
-2. Cho mượn sách, trả sách, xem lịch sử  
-3. Kiểm tra trạng thái sách (còn hay hết)  
+Mô tả đối tượng
 
----
+Ví dụ
 
-## Yêu cầu
-- Java 11 hoặc cao hơn  
-- Maven hoặc IDE hỗ trợ (IntelliJ, Eclipse…)  
+Hướng phát triển
 
----
+Bản quyền
 
-## Cài đặt & Chạy
+✨ Giới thiệu
+
+Đây là ứng dụng Quản lý Thư viện được xây dựng theo hướng lập trình hướng đối tượng (OOP), cho phép:
+
+Quản lý sách (Book)
+
+Quản lý bạn đọc (Reader)
+
+Theo dõi lịch sử mượn/trả (Loan)
+
+👥 Thành viên
+
+Phạm Năng Khang (24100032) – phamkheng
+
+Trần Quốc Việt Hùng (24100015) – hungspec
+
+🌐 Ứng dụng
+
+Thêm, sửa, xóa sách và bạn đọc
+
+Cho mượn sách, trả sách, xem lịch sử
+
+Kiểm tra trạng thái sách (còn hay hết)
+
+📆 Yêu cầu
+
+Java 11 hoặc cao hơn
+
+Maven hoặc IDE hỗ trợ (IntelliJ, Eclipse…)
+
+⚙️ Cài đặt & Chạy
+
+git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
+cd OOP_N02_T3_2_2025_Group1
+
+🗂️ Cấu trúc thư mục
+
+OOP_N02_T3_2_2025_Group1/
+├── src/
+│   ├── Book.java
+│   ├── Reader.java
+│   ├── Loan.java
+├── Main.java
+
+📚 Mô tả đối tượng
+
+Book: Thuộc tính và hành vi của sách
+
+Reader: Quản lý thông tin bạn đọc
+
+Loan: Lưu vết giao dịch mượn/trả
+
+📖 Ví dụ
+
+Book book = new Book("Harry Potter", "J.K. Rowling");
+Reader reader = new Reader("Nguyen Van A");
+Loan loan = new Loan(book, reader);
+loan.borrow();
+
+✨ Hướng phát triển
+
+Thêm giao diện GUI
+
+Kết nối cơ sở dữ liệu
+
+Tích hợp API REST
+
+📄 Bản quyền
+
+MIT License. © 2025
+
+
 1. **Clone repo:**
    ```bash
    git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git

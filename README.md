@@ -1,10 +1,15 @@
-# Library Management System
+# Library Management System 🎉
+
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Welcome+to+Our+Library+System;Built+with+Java+%26+OOP" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Chào+mừng+đến+với+ứng+dụng+thư+viện;Nhóm+01+OOP" alt="Typing SVG" />
 </p>
 
-
-**Nhóm 01 – OOP_N02_T3_2_2025**
+<p align="center">
+  <a href="https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1">
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="50" alt="Developer Badge" />
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="50" alt="Contributor Badge" />
+  </a>
+</p>
 
 ---
 
@@ -23,7 +28,7 @@
 ---
 
 ## Giới thiệu
-Đây là ứng dụng **Quản lý Thư viện** được xây dựng bằng Java, hướng đối tượng, cho phép:
+Đây là ứng dụng **Quản lý Thư viện** được xây dựng theo hướng lập trình hướng đối tượng (OOP), cho phép:
 
 - Quản lý sách (Book)  
 - Quản lý bạn đọc (Reader)  
@@ -46,20 +51,13 @@
 ---
 
 ## Yêu cầu
-- Java 11+  
-- Maven hoặc IDE hỗ trợ (IntelliJ/Eclipse)  
+- Java 11 hoặc cao hơn  
+- Maven hoặc IDE hỗ trợ (IntelliJ, Eclipse…)  
 
 ---
 
 ## Cài đặt & Chạy
-1. Clone dự án:
+1. **Clone repo:**
    ```bash
    git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
    cd OOP_N02_T3_2_2025_Group1
-
-Loan
-+ book_id
-+ Reader
-+ borrow_date
-+ return_date
-

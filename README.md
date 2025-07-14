@@ -58,6 +58,10 @@ Thêm, sửa, xóa sách và bạn đọc
 Cho mượn sách, trả sách, xem lịch sử
 
 Kiểm tra trạng thái sách (còn hay hết)
+## 📊 Activity Diagram – Mượn sách
+
+![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/raw/main/muon-sach.png)
+
 
 📆 Yêu cầu
 

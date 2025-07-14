@@ -30,20 +30,78 @@
 Cài đặt--Chạy
 
 
-✨ Giới thiệu
+## ✨ Giới thiệu
 
-Đây là ứng dụng Quản lý Thư sách (https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/images/tr%E1%BA%A3%20s%C3%A1ch.png)
+Ứng dụng **Quản lý Thư viện** được xây dựng theo phong cách **Lập trình Hướng đối tượng (OOP)**, giúp bạn:
 
-
-
-## 🚀 Hướng phát triển
-
-- Thêm giao diện đồ họa (GUI) bằng JavaFX/Swing  
-- Kết nối cơ sở dữ liệu (MySQL, SQLite…)  
-- Tích hợp RESTful API cho frontend web/app
+- Quản lý sách (`Book`)  
+- Quản lý bạn đọc (`Reader`)  
+- Theo dõi lịch sử mượn/trả (`Loan`)
 
 ---
 
+## 👥 Thành viên
+
+| Họ tên               | MSSV      | GitHub                        |
+|----------------------|-----------|-------------------------------|
+| Phạm Năng Khang      | 24100032  | [@phamkheng](https://github.com/phamkheng) |
+| Trần Quốc Việt Hùng  | 24100015  | [@hungspec](https://github.com/hungspec)   |
+
+---
+
+## 🌐 Ứng dụng
+
+- Thêm / sửa / xóa sách và bạn đọc  
+- Cho mượn / trả sách, xem lịch sử giao dịch  
+- Kiểm tra trạng thái sách (Available / Unavailable)
+
+---
+
+## 📆 Yêu cầu
+
+- Java 11 hoặc cao hơn  
+- Maven hoặc IDE Java (IntelliJ IDEA, Eclipse…)
+
+---
+
+## ⚙️ Cài đặt & Chạy
+
+```bash
+git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
+cd OOP_N02_T3_2_2025_Group1
+# Mở project bằng IDE hoặc:
+# javac src/*.java
+# java Main
+📊 Activity Diagram – Mượn sách https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/m%C6%B0%E1%BB%A3n%20s%C3%A1ch.png
+📊 Activity Diagram – Trả sách https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/tr%E1%BA%A3%20s%C3%A1ch.png
+
+
+
+
+📚 Mô tả đối tượng
+Book
+
+Thuộc tính: title, author, numPages, status (Available / Unavailable)
+
+Hành vi: checkAvailability(), markAsBorrowed(), markAsReturned(), display()
+
+Reader
+
+Thuộc tính: readerID, name, email, phone, borrowedBooks (List<Loan>)
+
+Hành vi: borrowBook(Book), returnBook(Book), viewBorrowHistory()
+
+Loan
+
+Thuộc tính: loanID, book, reader, loanDate, returnDate, status
+
+Hành vi: markReturned(Date), isOverdue(Date)
+🚀 Hướng phát triển
+Thêm giao diện đồ họa (GUI)
+
+Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
+
+Tích hợp RESTful API (Spring Boot)
 
 
 

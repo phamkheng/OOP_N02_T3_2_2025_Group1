@@ -32,66 +32,7 @@ Cài đặt--Chạy
 
 ✨ Giới thiệu
 
-Đây là ứng dụng Quản lý Thư viện được xây dựng theo hướng lập trình hướng đối tượng (OOP), cho phép:
-
-Quản lý sách (Book)
-
-Quản lý bạn đọc (Reader)
-
-Theo dõi lịch sử mượn/trả (Loan)
-
-👥 Thành viên
-
-Phạm Năng Khang (24100032) – phamkheng
-
-Trần Quốc Việt Hùng (24100015) – hungspec
-
-🌐 Ứng dụng
-
-Thêm, sửa, xóa sách và bạn đọc
-
-Cho mượn sách, trả sách, xem lịch sử
-
-Kiểm tra trạng thái sách (còn hay hết)
-
-📆 Yêu cầu
-
-Java 11 hoặc cao hơn
-
-Maven hoặc IDE hỗ trợ (IntelliJ, Eclipse…)
-
-⚙️ Cài đặt & Chạy
-
-```bash
-git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
-cd OOP_N02_T3_2_2025_Group1
-# Mở project bằng IDE hoặc chạy:
-javac src/*.java
-java src/Main
-```
-
----
-
-
-🗂️ Cấu trúc thư mục
-
-OOP_N02_T3_2_2025_Group1/
-├── src/
-│   ├── Book.java
-│   ├── Reader.java
-│   ├── Loan.java
-├── Main.java
-
-📚 Mô tả đối tượng
-
-Book: Thuộc tính và hành vi của sách
-
-Reader: Quản lý thông tin bạn đọc
-
-Loan: Lưu vết giao dịch mượn/trả
-📊 Activity Diagram – Mượn sách !![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/m%C6%B0%E1%BB%A3n%20s%C3%A1ch.png)
-
-📊 Activity Diagram – Trả sách           https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/tr%E1%BA%A3%20s%C3%A1ch.png
+Đây là ứng dụng Quản lý Thư sách (https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/images/tr%E1%BA%A3%20s%C3%A1ch.png)
 
 
 

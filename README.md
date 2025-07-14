@@ -72,7 +72,7 @@ cd OOP_N02_T3_2_2025_Group1
 # Mở project bằng IDE hoặc:
 # javac src/*.java
 # java Main
-📊 Activity Diagram – Mượn sách https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/m%C6%B0%E1%BB%A3n%20s%C3%A1ch.png
+📊 Activity Diagram – Mượn sách ![Activity Diagram Mượn sách]( https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/m%C6%B0%E1%BB%A3n%20s%C3%A1ch.png
 📊 Activity Diagram – Trả sách https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/blob/main/tr%E1%BA%A3%20s%C3%A1ch.png
 
 

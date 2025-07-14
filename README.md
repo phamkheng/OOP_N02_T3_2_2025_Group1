@@ -89,7 +89,8 @@ Book: Thuộc tính và hành vi của sách
 Reader: Quản lý thông tin bạn đọc
 
 Loan: Lưu vết giao dịch mượn/trả
-📊 Activity Diagram – Mượn sách ![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/raw/main/images/muon-sach.png)
+📊 Activity Diagram – Mượn sách !![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/raw/main/muon-sach.png)
+
 
 
 ## 🚀 Hướng phát triển

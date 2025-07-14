@@ -15,25 +15,20 @@
 
 📋 Mục lục
 
-Giới thiệu
-
-Thành viên
-
-Ứng dụng
-
-Yêu cầu
-
+1. [Giới thiệu]
+2. [Thành viên] 
+3. [Ứng dụng] 
+4. [Yêu cầu]  
+5. [Cài đặt & Chạy] 
+6. [Activity Diagram – Mượn sách] 
+7. [Activity Diagram – Trả sách]  
+8. [Cấu trúc thư mục]
+9. [Mô tả đối tượng]  
+10. [Ví dụ sử dụng] 
+11. [Hướng phát triển] 
+12. [Bản quyền]
 Cài đặt--Chạy
 
-Cấu trúc thư mục
-
-Mô tả đối tượng
-
-Ví dụ
-
-Hướng phát triển
-
-Bản quyền
 
 ✨ Giới thiệu
 
@@ -58,10 +53,6 @@ Thêm, sửa, xóa sách và bạn đọc
 Cho mượn sách, trả sách, xem lịch sử
 
 Kiểm tra trạng thái sách (còn hay hết)
-## 📊 Activity Diagram – Mượn sách
-
-![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/raw/main/muon-sach.png)
-
 
 📆 Yêu cầu
 
@@ -71,8 +62,16 @@ Maven hoặc IDE hỗ trợ (IntelliJ, Eclipse…)
 
 ⚙️ Cài đặt & Chạy
 
+```bash
 git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
 cd OOP_N02_T3_2_2025_Group1
+# Mở project bằng IDE hoặc chạy:
+javac src/*.java
+java src/Main
+```
+
+---
+
 
 🗂️ Cấu trúc thư mục
 
@@ -90,28 +89,17 @@ Book: Thuộc tính và hành vi của sách
 Reader: Quản lý thông tin bạn đọc
 
 Loan: Lưu vết giao dịch mượn/trả
-
-📖 Ví dụ
-
-Book book = new Book("Harry Potter", "J.K. Rowling");
-Reader reader = new Reader("Nguyen Van A");
-Loan loan = new Loan(book, reader);
-loan.borrow();
-
-✨ Hướng phát triển
-
-Thêm giao diện GUI
-
-Kết nối cơ sở dữ liệu
-
-Tích hợp API REST
-
-📄 Bản quyền
-
-MIT License. © 2025
+📊 Activity Diagram – Mượn sách ![Activity Diagram Mượn sách](https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1/raw/main/images/muon-sach.png)
 
 
-1. **Clone repo:**
-   ```bash
-   git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
-   cd OOP_N02_T3_2_2025_Group1
+## 🚀 Hướng phát triển
+
+- Thêm giao diện đồ họa (GUI) bằng JavaFX/Swing  
+- Kết nối cơ sở dữ liệu (MySQL, SQLite…)  
+- Tích hợp RESTful API cho frontend web/app
+
+---
+
+
+
+

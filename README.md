@@ -66,9 +66,9 @@ Cài đặt--Chạy
 
 ## 📊 Activity Diagram – Mượn sách
 ![Activity Diagram Mượn sách](muonsach.png)
-📊 Activity Diagram – Trả sách  ![Activity Diagram ](trasach.png)
-📊 Activity Diagram – tìm sách  ![Activity Diagram ](timsach.png)
-📊 Activity Diagram – đăng ký bạn đọc mới ![Activity Diagram ](dangkybandocmoi.png)
+## 📊 Activity Diagram – Trả sách  ![Activity Diagram ](trasach.png)
+## 📊 Activity Diagram – tìm sách  ![Activity Diagram ](timsach.png)
+## 📊 Activity Diagram – đăng ký bạn đọc mới ![Activity Diagram ](dangkybandocmoi.png)
 ## ⚙️ Cài đặt & Chạy
 
 ```bash

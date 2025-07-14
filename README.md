@@ -64,6 +64,8 @@ Cài đặt--Chạy
 
 ---
 
+## 📊 Activity Diagram – Mượn sách
+![Activity Diagram Mượn sách](muonsach.png)
 ## ⚙️ Cài đặt & Chạy
 
 ```bash
@@ -72,8 +74,7 @@ cd OOP_N02_T3_2_2025_Group1
 # Mở project bằng IDE hoặc:
 # javac src/*.java
 # java Main
-## 📊 Activity Diagram – Mượn sách
-![Activity Diagram Mượn sách](muonsach.png)
+
 
 
 

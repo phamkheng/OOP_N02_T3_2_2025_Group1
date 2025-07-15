@@ -46,6 +46,7 @@ Cài đặt--Chạy
 |----------------------|-----------|-------------------------------|
 | Phạm Năng Khang      | 24100032  | [@phamkheng](https://github.com/phamkheng) |
 | Trần Quốc Việt Hùng  | 24100015  | [@hungspec](https://github.com/hungspec)   |
+| Phạm Việt Khoa       | 24100058  | [@pvkhoa](https://github.com/pvkhoa)       |
 
 ---
 

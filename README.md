@@ -72,22 +72,6 @@ Cài đặt--Chạy
 ## 📊 Activity Diagram – Trả sách  ![Activity Diagram ](trasach.png)
 ## 📊 Activity Diagram – tìm sách  ![Activity Diagram ](timsach.png)
 ## 📊 Activity Diagram – đăng ký bạn đọc mới ![Activity Diagram ](dangkybandocmoi.png)
-## ⚙️ Cài đặt & Chạy
-
-```bash
-git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
-cd OOP_N02_T3_2_2025_Group1
-# Mở project bằng IDE hoặc:
-# javac src/*.java
-# java Main
-
-
-
-
-
-
-
-
 📚 Mô tả đối tượng
 Book
 
@@ -112,6 +96,23 @@ Thêm giao diện đồ họa (GUI)
 Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
 
 Tích hợp RESTful API (Spring Boot)
+
+## ⚙️ Cài đặt & Chạy
+
+```bash
+git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
+cd OOP_N02_T3_2_2025_Group1
+# Mở project bằng IDE hoặc:
+# javac src/*.java
+# java Main
+
+
+
+
+
+
+
+
 
 
 

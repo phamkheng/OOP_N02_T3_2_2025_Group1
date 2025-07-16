@@ -90,6 +90,7 @@ Loan
 Thuộc tính: loanID, book, reader, loanDate, returnDate, status
 
 Hành vi: markReturned(Date), isOverdue(Date)
+
 🚀 Hướng phát triển
 Thêm giao diện đồ họa (GUI)
 

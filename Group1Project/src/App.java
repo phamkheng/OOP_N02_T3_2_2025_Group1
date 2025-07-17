@@ -18,7 +18,7 @@ public class App {
 
         System.out.println("Name Book: " + ListBook.get(0).getTitle());
         System.out.println("Author: " + ListBook.get(0).getAuthor());
-        System.out.println("Satus: " + ( ListBook.get(0).getavailable() ? "available" : "empty"));
+        System.out.println("Satus: " + ( ListBook.get(0).getAvailable() ? "available" : "empty"));
 
     }
 }

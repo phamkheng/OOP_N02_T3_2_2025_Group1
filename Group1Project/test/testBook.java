@@ -1,17 +1,9 @@
 public class testBook {
-    String title;
-    String author;
-    int numPages;
-    
-    testBook() {}
-    public testBook(String title, String author, int numPages) {
-        this.title = title;
-        this.author = author;
-        this.numPages = numPages;
-    }
-    public void display() {
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Pages: " + numPages);
-    }
-}
+    public static void main(String[] args) {
+        // Create a book object
+        Book b = new Book("B001", "OPP", "Viet Hung");
+        System.out.println("TestBook - ID: ");
+        System.out.println(b.BookId());
+
+
+        

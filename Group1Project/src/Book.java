@@ -1,30 +1,29 @@
 public class Book {
-    String title;
-    String author;
-    int numPages;
-<<<<<<< HEAD
-    Book() {}
-=======
+    private String title;
+    private String author;
+    private Boolean available;
 
-    public Book() { }
-
->>>>>>> 22262b4e7c7264badbc0fd07c5e1ba51380793b7
-    public Book(String title, String author, int numPages) {
+    public Book(String title, String author, Boolean available) {
         this.title = title;
         this.author = author;
-        this.numPages = numPages;
+        this.available = available;
     }
-<<<<<<< HEAD
-    public void display() {
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Pages: " + numPages);
-    }
-}
-=======
 
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public int getNumPages() { return numPages; }
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Boolean getavailable() {
+        return available;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Tiêu đề: " + title + ", Tác giả: " + author;
+    }
 }
->>>>>>> 22262b4e7c7264badbc0fd07c5e1ba51380793b7

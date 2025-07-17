@@ -1,5 +1,5 @@
 public class TestApp {
-    public static void main(String[] args) {
+    public static void testApp() {
         App myApp = new App("LINKS", "1.0", "Quan-Ly-Thu-Vien-JavaSwing");
 
         System.out.println("App Name: " + myApp.getName());

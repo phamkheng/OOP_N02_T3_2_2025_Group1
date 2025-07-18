@@ -36,26 +36,28 @@ public class LibraryApp {
 
         for (int i = 0; i < listBooks.size(); i++) {
             if (listBooks.get(i).bookID.equals(bookId)) {
-                // Assuming we want to edit the title and author
 
                 Scanner title = new Scanner(System.in);
 
                 System.out.print("Enter new title: ");
                 String newTitle = title.nextLine();
+                title.close();//AI
 
                 Scanner author = new Scanner(System.in);
                 System.out.print("Enter new author: ");
                 String newAuthor = author.nextLine();
+                author.close();//AI
 
-
-
-                listBooks.get(i).title = newTitle; // Replace with actual new title
-                listBooks.get(i).author = newAuthor; // Replace with actual new author
+                listBooks.get(i).title = newTitle;
+                listBooks.get(i).author = newAuthor;
                 break;
             }
         }
 
         return listBooks;
     }
-
+    public static void main(String[] args) {
+        LibraryApp app = new LibraryApp();
+        //nó báo k có main k chạy đc
+    }
 }

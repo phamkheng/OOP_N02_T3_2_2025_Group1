@@ -2,16 +2,16 @@ public class Book{
     private String bookID;
     private String title;
     private String author;
-    private boolean available; // Sử dụng kiểu nguyên thủy
+    private boolean available;
 
-    // constructor không tham số
+  
     public Book() {
         this.title = "";
         this.author = "";
         this.bookID = "";
         this.available = true;
     }
-    // constructor có tham số
+   
     public Book(String bookID, String title, String author, int numPages, boolean available) {
         this.bookID = bookID;
         this.title = title;
@@ -31,7 +31,7 @@ public class Book{
     public boolean isAvailable() {
         return available;
     }
-    // kiểm tra trạng thái của sách
+   
     public String checkAvailability() {
         return available ? "có sẵn" : "trống";
     }
@@ -43,7 +43,7 @@ public class Book{
     public void markAsReturned() {
         available = true;
     }
-    // in ra màn hình thông số của sách
+ 
     public void display() {
         System.out.println("Tên Sách: " + title);
         System.out.println("Mã: " + bookID);

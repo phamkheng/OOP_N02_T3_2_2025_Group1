@@ -7,56 +7,87 @@ public class LibraryApp {
 
     public ArrayList<Book> addBook(Book b) {
         listBooks.add(b);
-
         return listBooks;
     }
 
     public ArrayList<Book> deleteBook(String bookId) {
-
         for (int i = 0; i < listBooks.size(); i++) {
-            if (listBooks.get(i).bookID.equals(bookId)) {
+            if (listBooks.get(i).getBookID().equals(bookId)) {
                 listBooks.remove(i);
                 break;
             }
-
         }
         return listBooks;
     }
 
     public void readBooks() {
         for (Book book : listBooks) {
-            System.out.println("Book ID: " + book.bookID);
-            System.out.println("Title: " + book.title);
-            System.out.println("Author: " + book.author);
+            book.display();
             System.out.println();
         }
     }
 
     public ArrayList<Book> editBook(String bookId) {
-
+        Scanner sc = new Scanner(System.in);
         for (int i = 0; i < listBooks.size(); i++) {
-            if (listBooks.get(i).bookID.equals(bookId)) {
-                // Assuming we want to edit the title and author
-
-                Scanner title = new Scanner(System.in);
-
+            if (listBooks.get(i).getBookID().equals(bookId)) {
                 System.out.print("Enter new title: ");
-                String newTitle = title.nextLine();
+                String newTitle = sc.nextLine();
 
-                Scanner author = new Scanner(System.in);
                 System.out.print("Enter new author: ");
-                String newAuthor = author.nextLine();
+                String newAuthor = sc.nextLine();
 
-
-
-                listBooks.get(i).title = newTitle; // Replace with actual new title
-                listBooks.get(i).author = newAuthor; // Replace with actual new author
+                listBooks.get(i).setTitle(newTitle);
+                listBooks.get(i).setAuthor(newAuthor);
                 break;
             }
         }
-
         return listBooks;
     }
 
+    public void findBookByTitle(String keyword) {
+        for (Book book : listBooks) {
+            if (book.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                book.display();
+                System.out.println();
+            }
+        }
+    }
+
+    public void showAvailableBooks() {
+        for (Book book : listBooks) {
+            if (book.isAvailable()) {
+                book.display();
+                System.out.println();
+            }
+        }
+    }
+
+ 
+    public void borrowBook(String bookId) {
+        for (Book book : listBooks) {
+            if (book.getBookID().equals(bookId)) {
+                if (book.isAvailable()) {
+                    book.markAsBorrowed();
+                    System.out.println("Đã mượn sách thành công.");
+                } else {
+                    System.out.println("Sách hiện không có sẵn.");
+                }
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sách với ID đã nhập.");
+    }
+
     
+    public void returnBook(String bookId) {
+        for (Book book : listBooks) {
+            if (book.getBookID().equals(bookId)) {
+                book.markAsReturned();
+                System.out.println("Đã trả sách thành công.");
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy sách với ID đã nhập.");
+    }
 }

@@ -56,8 +56,5 @@ public class LibraryApp {
 
         return listBooks;
     }
-    public static void main(String[] args) {
-        LibraryApp app = new LibraryApp();
-        //nó báo k có main k chạy đc
-    }
+
 }

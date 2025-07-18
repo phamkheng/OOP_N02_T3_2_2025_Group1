@@ -1,5 +1,3 @@
-
-
 public class Reader {
     String readerID;
     String name;
@@ -18,16 +16,14 @@ public class Reader {
     }
 
     public void borrowBook(Book book, Loan loan) {
-        if (borrowedCount < borrowedBooks.length) {
-            borrowedBooks[borrowedCount++] = loan;
-            book.markAsBorrowed();
-        }
+        borrowedBooks[borrowedCount++] = loan;
+        book.markAsBorrowed();
     }
 
     public void returnBook(Loan loan) {
         for (int i = 0; i < borrowedCount; i++) {
             if (borrowedBooks[i] == loan) {
-               
+                
                 for (int j = i; j < borrowedCount - 1; j++) {
                     borrowedBooks[j] = borrowedBooks[j + 1];
                 }

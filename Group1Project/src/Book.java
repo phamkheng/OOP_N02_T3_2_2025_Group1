@@ -8,4 +8,14 @@ class Book {
         this.title = title;
         this.author = author;
     }
+
+    public String getBookID(){
+        return bookID;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getAuthor() {
+        return author;
+    }
 }

@@ -1,5 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        TestLibraryApp.test();
+        TestLibraryBook.test();
+        TestLibraryReader.test();
+        TestLibraryLoan.test();
     }
 }

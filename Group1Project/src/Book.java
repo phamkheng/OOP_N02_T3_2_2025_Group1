@@ -1,53 +1,56 @@
-public class Book{
-    private String bookID;
-    private String title;
-    private String author;
-    private boolean available;
+public class Book {
+    String bookID;
+    String title;
+    String author;
+    boolean isAvailable;
 
-  
     public Book() {
-        this.title = "";
-        this.author = "";
-        this.bookID = "";
-        this.available = true;
+        this.isAvailable = true;
     }
-   
-    public Book(String bookID, String title, String author, int numPages, boolean available) {
+
+    public Book(String bookID, String title, String author) {
         this.bookID = bookID;
         this.title = title;
         this.author = author;
-        this.available = available;
+        this.isAvailable = true;
     }
+
+    public void markAsBorrowed() {
+        this.isAvailable = false;
+    }
+
+    public void markAsReturned() {
+        this.isAvailable = true;
+    }
+
+    public boolean isAvailable() {
+        return this.isAvailable;
+    }
+
+    // Thêm các getter/setter cần thiết cho LibraryApp
     public String getBookID() {
         return bookID;
     }
+
     public String getTitle() {
         return title;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getAuthor() {
         return author;
     }
 
-    public boolean isAvailable() {
-        return available;
-    }
-   
-    public String checkAvailability() {
-        return available ? "có sẵn" : "trống";
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public void markAsBorrowed() {
-        available = false;
-    }
-
-    public void markAsReturned() {
-        available = true;
-    }
- 
+    // Thêm hàm hiển thị thông tin sách
     public void display() {
-        System.out.println("Tên Sách: " + title);
-        System.out.println("Mã: " + bookID);
-        System.out.println("Tác giả: " + author);
-        System.out.println("Trạng thái: " + checkAvailability());
+        System.out.println("ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Available: " + isAvailable);
     }
 }
+

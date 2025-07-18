@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LibraryApp {
+public class LibraryBook {
 
     ArrayList<Book> listBooks = new ArrayList<>();
 
@@ -62,8 +62,6 @@ public class LibraryApp {
             }
         }
     }
-
- 
     public void borrowBook(String bookId) {
         for (Book book : listBooks) {
             if (book.getBookID().equals(bookId)) {

@@ -6,47 +6,63 @@ public class LibraryReader {
     ArrayList<Reader> listReaders = new ArrayList<>();
 
     public ArrayList<Reader> addReader(Reader r) {
-        listReaders.add(r);
+        try {
+            listReaders.add(r);
+        } catch (Exception e) {
+            System.out.println("Error adding reader: " + e.getMessage());
+        }
         return listReaders;
     }
 
     public ArrayList<Reader> deleteReader(String readerId) {
-        for (int i = 0; i < listReaders.size(); i++) {
-            if (listReaders.get(i).readerID.equals(readerId)) {
-                listReaders.remove(i);
-                break;
+        try {
+            for (int i = 0; i < listReaders.size(); i++) {
+                if (listReaders.get(i).readerID.equals(readerId)) {
+                    listReaders.remove(i);
+                    break;
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error deleting reader: " + e.getMessage());
         }
         return listReaders;
     }
 
     public void readReaders() {
-        for (Reader r : listReaders) {
-            System.out.println("Reader ID: " + r.readerID);
-            System.out.println("Name: " + r.name);
-            System.out.println("Email: " + r.email);
-            System.out.println("Phone: " + r.phone);
-            System.out.println();
+        try {
+            for (Reader r : listReaders) {
+                System.out.println("Reader ID: " + r.readerID);
+                System.out.println("Name: " + r.name);
+                System.out.println("Email: " + r.email);
+                System.out.println("Phone: " + r.phone);
+                System.out.println();
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading readers: " + e.getMessage());
         }
     }
 
     public ArrayList<Reader> editReader(String readerId, Scanner sc) {
-        for (Reader r : listReaders) {
-            if (r.readerID.equals(readerId)) {
-                System.out.print("Enter new name: ");
-                String newName = sc.nextLine();
+        try {
+            for (Reader r : listReaders) {
+                if (r.readerID.equals(readerId)) {
+                    System.out.print("Enter new name: ");
+                    String newName = sc.nextLine();
 
-                System.out.print("Enter new email: ");
-                String newEmail = sc.nextLine();
+                    System.out.print("Enter new email: ");
+                    String newEmail = sc.nextLine();
 
-                System.out.print("Enter new phone: ");
-                String newPhone = sc.nextLine();
+                    System.out.print("Enter new phone: ");
+                    String newPhone = sc.nextLine();
 
-                r.name = newName;
-                r.email = newEmail;
-                r.phone = newPhone;
-                break;
+                    r.name = newName;
+                    r.email = newEmail;
+                    r.phone = newPhone;
+                    break;
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error editing reader: " + e.getMessage());
         }
         return listReaders;
     }

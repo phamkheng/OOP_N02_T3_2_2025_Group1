@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class LibraryBook {
@@ -7,10 +7,14 @@ public class LibraryBook {
     ArrayList<Book> listBooks = new ArrayList<>();
 
     public ArrayList<Book> addBook(Book b) {
+    try {
         listBooks.add(b);
-        return listBooks;
+        System.out.println("Thêm sách thành công.");
+    } catch (Exception e) {
+        System.out.println("Lỗi khi thêm sách: " + e.getMessage());
     }
-
+    return listBooks;
+}
     public ArrayList<Book> deleteBook(String bookId) {
         try {
             for (int i = 0; i < listBooks.size(); i++) {
@@ -55,9 +59,7 @@ public class LibraryBook {
                     break;
                 }
             }
-        } catch (InputMismatchException ime) {
-            System.out.println("Dữ liệu nhập không hợp lệ.");
-        } catch (Exception e) {
+         } catch (Exception e) {
             System.out.println("Lỗi khi chỉnh sửa sách: " + e.getMessage());
         }
         return listBooks;

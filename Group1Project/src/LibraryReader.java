@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class LibraryReader {
 
     ArrayList<Reader> listReaders = new ArrayList<>();
@@ -29,9 +30,7 @@ public class LibraryReader {
         }
     }
 
-    public ArrayList<Reader> editReader(String readerId) {
-        Scanner sc = new Scanner(System.in);
-        sc.close();
+    public ArrayList<Reader> editReader(String readerId, Scanner sc) {
         for (Reader r : listReaders) {
             if (r.readerID.equals(readerId)) {
                 System.out.print("Enter new name: ");
@@ -51,4 +50,4 @@ public class LibraryReader {
         }
         return listReaders;
     }
-} 
+}

@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 public class TestLibraryReader {
     public static void test() {
-
         LibraryReader libraryReader = new LibraryReader();
         Reader r1 = new Reader("R001", "Viet Hung", "a@gmail.com", "0123456789");
         Reader r2 = new Reader("R002", "Pham Khang", "b@gmail.com", "0987654321");
@@ -18,13 +19,10 @@ public class TestLibraryReader {
         libraryReader.readReaders();
 
         System.out.println("========== Chỉnh sửa bạn đọc R003 ==========");
-        libraryReader.editReader("R003");
+        Scanner sc = new Scanner(System.in);
+        libraryReader.editReader("R003", sc);
 
         System.out.println("========== Danh sách sau khi chỉnh sửa ==========");
         libraryReader.readReaders();
-    }
-
-    public static void main(String[] args) {
-        test();
     }
 }

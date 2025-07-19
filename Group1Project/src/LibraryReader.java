@@ -31,6 +31,7 @@ public class LibraryReader {
 
     public ArrayList<Reader> editReader(String readerId) {
         Scanner sc = new Scanner(System.in);
+        sc.close();
         for (Reader r : listReaders) {
             if (r.readerID.equals(readerId)) {
                 System.out.print("Enter new name: ");

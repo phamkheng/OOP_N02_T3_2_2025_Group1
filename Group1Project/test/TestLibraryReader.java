@@ -4,7 +4,7 @@ public class TestLibraryReader {
         LibraryReader libraryReader = new LibraryReader();
         Reader r1 = new Reader("R001", "Viet Hung", "a@gmail.com", "0123456789");
         Reader r2 = new Reader("R002", "Pham Khang", "b@gmail.com", "0987654321");
-        Reader r3 = new Reader("R003", "Nguyen Khoa", "c@gmail.com", "0111222333");
+        Reader r3 = new Reader("R003", "Pham Khoa", "c@gmail.com", "0111222333");
 
         libraryReader.addReader(r1);
         libraryReader.addReader(r2);

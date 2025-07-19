@@ -32,4 +32,21 @@ public class Reader {
             }
         }
     }
+    public void viewBorrowHistory() {
+        System.out.println("Độc giả: " + name);
+        System.out.println("ID: " + readerID);
+        System.out.println("Email: " + email);
+        System.out.println("SĐT: " + phone);
+        if(borrowedCount == 0){
+            System.out.println("Chưa muợn sách nào.");
+        }
+        else{
+            System.out.println("Lịch sử mượn sách:");
+            for (int i = 0; i < borrowedCount; i++) {
+                System.out.println("ID sách: " + borrowedBooks[i].book.bookID);
+                System.out.println("Tên sách: " + borrowedBooks[i].book.title);
+                System.out.println("Tác giả: " + borrowedBooks[i].book.author);
+            }
+        }
+    }
 }

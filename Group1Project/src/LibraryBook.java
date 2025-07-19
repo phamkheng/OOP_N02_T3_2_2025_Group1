@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LibraryBook {
@@ -11,81 +12,114 @@ public class LibraryBook {
     }
 
     public ArrayList<Book> deleteBook(String bookId) {
-        for (int i = 0; i < listBooks.size(); i++) {
-            if (listBooks.get(i).getBookID().equals(bookId)) {
-                listBooks.remove(i);
-                break;
+        try {
+            for (int i = 0; i < listBooks.size(); i++) {
+                if (listBooks.get(i).getBookID().equals(bookId)) {
+                    listBooks.remove(i);
+                    System.out.println("Sách đã được xóa thành công.");
+                    return listBooks;
+                }
             }
+            System.out.println("Không tìm thấy sách với ID: " + bookId);
+        } catch (Exception e) {
+            System.out.println("Lỗi khi xóa sách: " + e.getMessage());
         }
         return listBooks;
     }
 
     public void readBooks() {
-        for (Book book : listBooks) {
-            book.display();
-            System.out.println();
+        try {
+            for (Book book : listBooks) {
+                book.display();
+                System.out.println();
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi đọc danh sách sách: " + e.getMessage());
         }
     }
 
     public ArrayList<Book> editBook(String bookId) {
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < listBooks.size(); i++) {
-            if (listBooks.get(i).getBookID().equals(bookId)) {
-                System.out.print("Enter new title: ");
-                String newTitle = sc.nextLine();
+        try {
+            for (Book book : listBooks) {
+                if (book.getBookID().equals(bookId)) {
+                    System.out.print("Enter new title: ");
+                    String newTitle = sc.nextLine();
 
-                System.out.print("Enter new author: ");
-                String newAuthor = sc.nextLine();
+                    System.out.print("Enter new author: ");
+                    String newAuthor = sc.nextLine();
 
-                listBooks.get(i).setTitle(newTitle);
-                listBooks.get(i).setAuthor(newAuthor);
-                break;
+                    book.setTitle(newTitle);
+                    book.setAuthor(newAuthor);
+                    System.out.println("Sửa sách thành công.");
+                    break;
+                }
             }
+        } catch (InputMismatchException ime) {
+            System.out.println("Dữ liệu nhập không hợp lệ.");
+        } catch (Exception e) {
+            System.out.println("Lỗi khi chỉnh sửa sách: " + e.getMessage());
         }
         return listBooks;
     }
 
     public void findBookByTitle(String keyword) {
-        for (Book book : listBooks) {
-            if (book.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
-                book.display();
-                System.out.println();
+        try {
+            for (Book book : listBooks) {
+                if (book.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                    book.display();
+                    System.out.println();
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi tìm sách: " + e.getMessage());
         }
     }
 
     public void showAvailableBooks() {
-        for (Book book : listBooks) {
-            if (book.isAvailable()) {
-                book.display();
-                System.out.println();
-            }
-        }
-    }
-    public void borrowBook(String bookId) {
-        for (Book book : listBooks) {
-            if (book.getBookID().equals(bookId)) {
+        try {
+            for (Book book : listBooks) {
                 if (book.isAvailable()) {
-                    book.markAsBorrowed();
-                    System.out.println("Đã mượn sách thành công.");
-                } else {
-                    System.out.println("Sách hiện không có sẵn.");
+                    book.display();
+                    System.out.println();
                 }
-                return;
             }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi hiển thị sách có sẵn: " + e.getMessage());
         }
-        System.out.println("Không tìm thấy sách với ID đã nhập.");
     }
 
-    
-    public void returnBook(String bookId) {
-        for (Book book : listBooks) {
-            if (book.getBookID().equals(bookId)) {
-                book.markAsReturned();
-                System.out.println("Đã trả sách thành công.");
-                return;
+    public void borrowBook(String bookId) {
+        try {
+            for (Book book : listBooks) {
+                if (book.getBookID().equals(bookId)) {
+                    if (book.isAvailable()) {
+                        book.markAsBorrowed();
+                        System.out.println("Đã mượn sách thành công.");
+                    } else {
+                        System.out.println("Sách hiện không có sẵn.");
+                    }
+                    return;
+                }
             }
+            System.out.println("Không tìm thấy sách với ID đã nhập.");
+        } catch (Exception e) {
+            System.out.println("Lỗi khi mượn sách: " + e.getMessage());
         }
-        System.out.println("Không tìm thấy sách với ID đã nhập.");
+    }
+
+    public void returnBook(String bookId) {
+        try {
+            for (Book book : listBooks) {
+                if (book.getBookID().equals(bookId)) {
+                    book.markAsReturned();
+                    System.out.println("Đã trả sách thành công.");
+                    return;
+                }
+            }
+            System.out.println("Không tìm thấy sách với ID đã nhập.");
+        } catch (Exception e) {
+            System.out.println("Lỗi khi trả sách: " + e.getMessage());
+        }
     }
 }

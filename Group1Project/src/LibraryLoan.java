@@ -11,6 +11,7 @@ public class LibraryLoan {
     }
 
     public ArrayList<Loan> deleteLoan(String loanId) {
+        
         for (int i = 0; i < listLoans.size(); i++) {
             if (listLoans.get(i).loanID.equals(loanId)) {
                 listLoans.remove(i);

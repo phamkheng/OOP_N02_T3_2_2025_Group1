@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class LibraryReader {
 
@@ -11,6 +12,7 @@ public class LibraryReader {
     }
 
     public ArrayList<Reader> deleteReader(String readerId) {
+    try{
         for (int i = 0; i < listReaders.size(); i++) {
             if (listReaders.get(i).readerID.equals(readerId)) {
                 listReaders.remove(i);
@@ -18,9 +20,13 @@ public class LibraryReader {
             }
         }
         return listReaders;
+    } catch(Exception e) {
+            System.out.println("Lỗi khi xóa người đọc: " + e.getMessage());
+        return listReaders;
     }
-
+}
     public void readReaders() {
+        try{
         for (Reader r : listReaders) {
             System.out.println("Reader ID: " + r.readerID);
             System.out.println("Name: " + r.name);
@@ -28,9 +34,12 @@ public class LibraryReader {
             System.out.println("Phone: " + r.phone);
             System.out.println();
         }
+    }catch(Exception e){
+        System.out.println("Lỗi khi xuất người đọc: " + e.getMessage());
     }
-
+}
     public ArrayList<Reader> editReader(String readerId, Scanner sc) {
+       try{
         for (Reader r : listReaders) {
             if (r.readerID.equals(readerId)) {
                 System.out.print("Enter new name: ");
@@ -49,5 +58,6 @@ public class LibraryReader {
             }
         }
         return listReaders;
-    }
+       }catch (Exception e) {
+            System.out.println("Lỗi khi edit người đọc: " + e.getMessage());
 }

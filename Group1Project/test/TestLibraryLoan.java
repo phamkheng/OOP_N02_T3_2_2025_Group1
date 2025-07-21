@@ -10,9 +10,9 @@ public class TestLibraryLoan {
         Reader r2 = new Reader("R002", "Khang", "b@gmail.com", "0987654321");
         Reader r3 = new Reader("R003", "Khoa", "c@gmail.com", "0111222333");
 
-        Loan l1 = new Loan("L001", b1, r1, "2025-07-15");
-        Loan l2 = new Loan("L002", b2, r2, "2025-07-16");
-        Loan l3 = new Loan("L003", b3, r3, "2025-07-17");
+        Loan l1 = new Loan("L001", b1, r1, "2025-07-15", "2025-07-20");
+        Loan l2 = new Loan("L002", b2, r2, "2025-07-16", "2025-07-21");
+        Loan l3 = new Loan("L003", b3, r3, "2025-07-17", "2025-07-22");
 
         libraryLoan.addLoan(l1);
         libraryLoan.addLoan(l2);

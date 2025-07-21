@@ -34,7 +34,7 @@ public class LibraryLoan {
                 System.out.println("Loan ID: " + l.loanID);
                 System.out.println("Book: " + l.book.getTitle());
                 System.out.println("Reader: " + l.reader.name);
-                System.out.println("Loan Date: " + l.loanDate);
+                System.out.println("Loan Date: " + l.borrowDate);
                 System.out.println("Return Date: " + (l.returnDate != null ? l.returnDate : "Chưa trả"));
                 System.out.println("Status: " + l.status);
                 System.out.println();

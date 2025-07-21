@@ -3,6 +3,7 @@ public class Book {
     String title;
     String author;
     boolean isAvailable;
+    int quantity;
 
     public Book() {
         this.isAvailable = true;
@@ -13,6 +14,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.isAvailable = true;
+        this.quantity = 10;
     }
 
     public void markAsBorrowed() {
@@ -27,13 +29,16 @@ public class Book {
         return this.isAvailable;
     }
 
-    // Thêm các getter/setter cần thiết cho LibraryApp
     public String getBookID() {
         return bookID;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public void setTitle(String title) {
@@ -48,9 +53,8 @@ public class Book {
         this.author = author;
     }
 
-    // Thêm hàm hiển thị thông tin sách
     public void display() {
-        System.out.println("ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Available: " + isAvailable);
+        System.out.println("ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Available: " + isAvailable +", Quantity: " + quantity);
     }
 }
 

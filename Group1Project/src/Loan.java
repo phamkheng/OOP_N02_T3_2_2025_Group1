@@ -1,16 +1,18 @@
+import java.util.Scanner;
 public class Loan {
     String loanID;
     Book book;
     Reader reader;
-    String loanDate;
+    String borrowDate;
     String returnDate;
     String status = "Borrowed";
 
-    public Loan(String loanID, Book book, Reader reader, String loanDate) {
+    public Loan(String loanID, Book book, Reader reader, String loanDate, String returnDate) {
         this.loanID = loanID;
         this.book = book;
         this.reader = reader;
-        this.loanDate = loanDate;
+        this.borrowDate = loanDate;
+        this.returnDate = returnDate;
     }
 
     public void markReturned(String date) {

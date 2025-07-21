@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+//  CẬP NHẬP THÔNG TIN NGƯỜI ĐỌC MỚI 
 public class RegisterReader {
      private ArrayList<Reader> readers;
     private Scanner scanner;

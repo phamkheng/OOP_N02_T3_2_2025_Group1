@@ -3,5 +3,6 @@ public class App {
         TestLibraryBook.test();
         TestLibraryReader.test();
         TestLibraryLoan.test();
+        TestRegisterReader.test();
     }
 }

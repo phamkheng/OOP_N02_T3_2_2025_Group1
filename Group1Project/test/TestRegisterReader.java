@@ -1,6 +1,6 @@
-/* 
+
 public class TestRegisterReader {
-    public static void main(String[] args) {
+    public static void test() {
         RegisterReader register = new RegisterReader();
         register.registerNewReader();
 
@@ -10,4 +10,3 @@ public class TestRegisterReader {
         }
     }
 }
-*/

@@ -1,29 +1,34 @@
-import java.util.Scanner;
 public class Loan {
-    String loanID;
-    Book book;
-    Reader reader;
-    String borrowDate;
-    String returnDate;
-    String status = "Borrowed";
+    public String loanID;
+    public Book book;
+    public Reader reader;
+    public String borrowDate;
+    public String returnDate;
+    public String dueDate; 
+    public String status = "Borrowed";
 
-    public Loan(String loanID, Book book, Reader reader, String loanDate, String returnDate) {
+    public Loan(String loanID, Book book, Reader reader, String borrowDate, String dueDate) {
         this.loanID = loanID;
         this.book = book;
         this.reader = reader;
-        this.borrowDate = loanDate;
-        this.returnDate = returnDate;
+        this.borrowDate = borrowDate;
+        this.dueDate = dueDate;
+        this.returnDate = null;
     }
 
     public void markReturned(String date) {
         this.returnDate = date;
         this.status = "Returned";
-        book.markAsReturned();
+        if (book != null) {
+            book.markAsReturned();
+        }
     }
 
     public boolean isOverdue(String currentDate) {
-    
-        if (returnDate == null) return false;
-        return currentDate.compareTo(returnDate) > 0;
+       
+        if (returnDate == null && dueDate != null) {
+            return currentDate.compareTo(dueDate) > 0;
+        }
+        return false;
     }
 }

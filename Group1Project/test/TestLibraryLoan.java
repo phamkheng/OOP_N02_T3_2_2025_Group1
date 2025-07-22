@@ -1,37 +1,54 @@
-public class TestLibraryLoan {
-    public static void test() {
-
-        LibraryLoan libraryLoan = new LibraryLoan();
-       Book b1 = new Book("B001", "OOP", "Viet Hung");
-       Book b2 = new Book("B002", "Java", "Pham Khang");
-       Book b3 = new Book("B003", "Python", "Nguyen Khoa");
-
-        Reader r1 = new Reader("R001", "Hung", "a@gmail.com", "0123456789");
-        Reader r2 = new Reader("R002", "Khang", "b@gmail.com", "0987654321");
-        Reader r3 = new Reader("R003", "Khoa", "c@gmail.com", "0111222333");
-
-        Loan l1 = new Loan("L001", b1, r1, "2025-07-15", "2025-07-20");
-        Loan l2 = new Loan("L002", b2, r2, "2025-07-16", "2025-07-21");
-        Loan l3 = new Loan("L003", b3, r3, "2025-07-17", "2025-07-22");
-
-        libraryLoan.addLoan(l1);
-        libraryLoan.addLoan(l2);
-        libraryLoan.addLoan(l3);
-
-        System.out.println("========== Danh sách sau khi thêm ==========");
-        libraryLoan.readLoans();
-
-        System.out.println("========== Xóa giao dịch L001 ==========");
-        libraryLoan.deleteLoan("L001");
-        libraryLoan.readLoans();
-
-        System.out.println("========== Đánh dấu L003 đã trả ==========");
-        libraryLoan.markAsReturned("L003", "2025-07-20");
-
-        System.out.println("========== Danh sách sau khi trả L003 ==========");
-        libraryLoan.readLoans();
-
-        System.out.println("========== Kiểm tra quá hạn ngày 2025-07-25 ==========");
-        libraryLoan.checkOverdue("2025-07-25");
+import java.time.LocalDate;
+import java.util.Scanner;
+public class TestLoanManager {
+    public static void test(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        LibraryReader readerManager = new LibraryReader();
+        LibraryBook bookManager = new LibraryBook();
+        LoanManager loanManager = new LoanManager(readerManager, bookManager);
+        bookManager.addBook(TestLibraryBook.b1);
+        System.out.println("=== Danh sách sách có sẵn ===");
+        bookManager.readBooks();
+        System.out.println("\n=== Nhập thông tin người đọc ===");
+        System.out.print("Nhập ID người đọc: ");
+        String readerId = sc.nextLine();
+        System.out.print("Nhập tên người đọc: ");
+        String name = sc.nextLine();
+        System.out.print("Nhập email: ");
+        String email = sc.nextLine();
+        System.out.print("Nhập số điện thoại: ");
+        String phone = sc.nextLine();
+        Reader newReader = new Reader(readerId, name, email, phone);
+        readerManager.addReader(newReader);
+        System.out.println("\n=== Nhập thông tin mượn sách ===");
+        System.out.print("Nhập ID sách muốn mượn: ");
+        String bookId = sc.nextLine();
+        boolean bookFound = false;
+        for (Book book : bookManager.listBooks) {
+            if (book.bookID.equals(bookId)) {
+                bookFound = true;
+                if (book.quantity > 0) {
+                    System.out.println("Sách còn " + book.quantity + " cuốn.");
+                    System.out.println("Có thể mượn sách!");
+                    String borrowDate = LocalDate.now().toString();
+                    String returnDate = LocalDate.now().plusDays(30).toString();
+                    String loanId = "L" + System.currentTimeMillis();
+                    loanManager.createLoan(loanId, readerId, bookId, borrowDate, returnDate);
+                    System.out.println("\n=== Thông tin phiếu mượn ===");
+                    System.out.println("ID phiếu mượn: " + loanId);
+                    System.out.println("Người mượn: " + name);
+                    System.out.println("Sách mượn: " + book.title);
+                    System.out.println("Ngày mượn: " + borrowDate);
+                    System.out.println("Ngày trả: " + returnDate);
+                } else {
+                    System.out.println("Sách đã hết!");
+                }
+                break;
+            }
+        }
+        if (!bookFound) {
+            System.out.println("Không tìm thấy sách với ID: " + bookId);
+        }
+        sc.close();
     }
 }

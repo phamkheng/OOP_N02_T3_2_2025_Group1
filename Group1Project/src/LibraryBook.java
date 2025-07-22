@@ -61,7 +61,9 @@ public class LibraryBook {
             }
          } catch (Exception e) {
             System.out.println("Lỗi khi chỉnh sửa sách: " + e.getMessage());
-        }
+        }finally {
+        sc.close(); 
+    }
         return listBooks;
     }
 

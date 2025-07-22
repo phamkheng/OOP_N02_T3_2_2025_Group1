@@ -1,6 +1,10 @@
+package Controller;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+import Model.Reader;
 
 //  CẬP NHẬP THÔNG TIN NGƯỜI ĐỌC MỚI 
 public class RegisterReader {

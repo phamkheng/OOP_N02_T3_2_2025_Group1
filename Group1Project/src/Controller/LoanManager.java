@@ -1,4 +1,10 @@
+package Controller;
+
 import java.util.ArrayList;
+
+import Model.Book;
+import Model.Loan;
+import Model.Reader;
 
 public class LoanManager {
     private ArrayList<Loan> loanList = new ArrayList<>();

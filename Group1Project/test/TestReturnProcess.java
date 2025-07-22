@@ -1,4 +1,7 @@
-
+import Controller.ReturnProcess;
+import Model.Book;
+import Model.Loan;
+import Model.Reader;
 
 public class TestReturnProcess {
 

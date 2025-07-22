@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+import Controller.LibraryReader;
+import Model.Reader;
+
 public class TestLibraryReader {
     public static void test() {
         LibraryReader libraryReader = new LibraryReader();

@@ -1,11 +1,17 @@
+package Controller;
+
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
+import Model.Book;
+
 public class LibraryBook {
 
     ArrayList<Book> listBooks = new ArrayList<>();
-
+    public ArrayList<Book> getListBooks() {
+        return listBooks;
+    }
     public ArrayList<Book> addBook(Book b) {
     try {
         listBooks.add(b);
@@ -62,7 +68,11 @@ public class LibraryBook {
          } catch (Exception e) {
             System.out.println("Lỗi khi chỉnh sửa sách: " + e.getMessage());
         }finally {
+
         sc.close(); 
+
+        sc.close();
+
     }
         return listBooks;
     }

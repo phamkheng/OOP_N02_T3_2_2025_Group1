@@ -1,3 +1,5 @@
+import Controller.RegisterReader;
+import Model.Reader;
 
 public class TestRegisterReader {
     public static void test() {

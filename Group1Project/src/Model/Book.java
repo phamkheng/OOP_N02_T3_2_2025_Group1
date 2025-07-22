@@ -1,10 +1,11 @@
-public class Book {
-    String bookID;
-    String title;
-    String author;
-    boolean isAvailable;
-    int quantity;
+package Model;
 
+public class Book {
+    public String bookID;
+    public String title;
+    public String author;
+    public boolean isAvailable;
+    public int quantity;
     public Book() {
         this.isAvailable = true;
     }

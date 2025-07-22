@@ -1,8 +1,10 @@
+package Model;
+
 public class Reader {
-    String readerID;
-    String name;
-    String email;
-    String phone;
+    public String readerID;
+    public String name;
+    public String email;
+    public String phone;
     Loan[] borrowedBooks = new Loan[100];
     int borrowedCount = 0;
 

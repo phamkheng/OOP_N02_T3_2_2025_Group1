@@ -1,3 +1,4 @@
+package Model;
 public class Loan {
     public String loanID;
     public Book book;

@@ -1,4 +1,7 @@
+package Controller;
 import java.util.ArrayList;
+import Model.Loan;
+
 
 
 public class LibraryLoan {

@@ -1,5 +1,11 @@
 import java.time.LocalDate;
 import java.util.Scanner;
+
+import Controller.LibraryBook;
+import Controller.LibraryReader;
+import Controller.LoanManager;
+import Model.Book;
+import Model.Reader;
 public class TestLoanManager {
     public static void test(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -24,7 +30,7 @@ public class TestLoanManager {
         System.out.print("Nhập ID sách muốn mượn: ");
         String bookId = sc.nextLine();
         boolean bookFound = false;
-        for (Book book : bookManager.listBooks) {
+        for (Book book : bookManager.getListBooks()) {
             if (book.bookID.equals(bookId)) {
                 bookFound = true;
                 if (book.quantity > 0) {
@@ -49,5 +55,6 @@ public class TestLoanManager {
         if (!bookFound) {
             System.out.println("Không tìm thấy sách với ID: " + bookId);
         }
+        sc.close();
     }
 }

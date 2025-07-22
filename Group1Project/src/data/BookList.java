@@ -1,4 +1,10 @@
+package data;
+
+
+
 import java.util.ArrayList;
+
+import Model.Book;
 
 public class BookList {
     private ArrayList<Book> books;

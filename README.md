@@ -68,10 +68,10 @@ Cài đặt--Chạy
 ## 📊 Class Diagram ![Class Diagram ](class-diagram.png)
 
 ## 📊 Activity Diagram – Mượn sách
-![Activity Diagram Mượn sách](muonsach.png)
-## 📊 Activity Diagram – Trả sách  ![Activity Diagram ](trasach.png)
-## 📊 Activity Diagram – tìm sách  ![Activity Diagram ](timsach.png)
-## 📊 Activity Diagram – đăng ký bạn đọc mới ![Activity Diagram ](dangkybandocmoi.png)
+![Activity Diagram Mượn sách](../main/images/muonsach.png)
+## 📊 Activity Diagram – Trả sách  ![Activity Diagram ](../main/images/trasach.png)
+## 📊 Activity Diagram – tìm sách  ![Activity Diagram ](../main/images/timsach.png)
+## 📊 Activity Diagram – đăng ký bạn đọc mới ![Activity Diagram ](.../main/images/dangkybandocmoi.png)
 📚 Mô tả đối tượng
 Book
 

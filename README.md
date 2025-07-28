@@ -65,7 +65,7 @@ Cài đặt--Chạy
 
 ---
 
-## 📊 Class Diagram ![Class Diagram ](class-diagram.png)
+## 📊 Class Diagram ![Class Diagram ](../main/images/class-diagram.png)
 
 ## 📊 Activity Diagram – Mượn sách
 ![Activity Diagram Mượn sách](../main/images/muonsach.png)

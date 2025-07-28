@@ -76,6 +76,8 @@ Cài đặt--Chạy
 ![Activity Diagram ](../main/images/timsach.png)
 ## 📊 Activity Diagram – đăng ký bạn đọc mới
 ![Activity Diagram ](../main/images/dangkybandocmoi.png)
+
+
 📚 Mô tả đối tượng
 Book
 

@@ -6,14 +6,20 @@ import java.sql.DriverManager;
 import java.lang.Class;
 import java.sql.Statement;
 
+
 @Controller
 public class myDBConnection {
 
     public myDBConnection() {
     };
 
-    // Đọc URL từ biến môi trường để tránh lộ secret
-    String myDatabaseURL = System.getenv("MY_DATABASE_URL");
+    // @Value("${my.database.url}")
+    // protected String myDatabaseURL;
+
+    String myDatabaseURL = "jdbc:mysql://avnadmin:AVNS_RE3O2bhYZ_1_6ER7YK7@mysql-14737a33-nglthu-4e05.k.aivencloud.com:17237/defaultdb?ssl-mode=REQUIRED";
+
+    // @Value("${my.database.driver}")
+    // protected String myDatabaseDriver;
 
     String myDatabaseDriver = "com.mysql.cj.jdbc.Driver";
 

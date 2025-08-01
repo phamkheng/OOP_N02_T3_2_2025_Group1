@@ -30,6 +30,10 @@
 
     <a href="/"><button type="button" class="btn btn-outline-info">Trang Chủ</button></a>
 
+        <div class="container mt-3 mb-3">
+        <a th:href="@{/add-book}" class="btn btn-primary">Thêm Sách Mới</a>
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr><p style="font-size:xx-large; color:darkcyan ;text-align: center;">📚 Danh Sách Sách</p></tr>
@@ -50,8 +54,12 @@
                 <td><span th:text="${book.author}">Author</span></td>
                 <td><span th:text="${book.isAvailable ? 'Có sẵn' : 'Đã mượn'}">Status</span></td>
                 <td><span th:text="${book.quantity}">Quantity</span></td>
-                <td><button type="button" class="btn btn-success bi bi-brush"></button></td>
-                <td><button type="button" class="btn btn-danger bi bi-calendar2-x"></button></td>
+                <td>
+                    <a th:href="@{/editBook/{id}(id=${book.bookID})}" class="btn btn-success bi bi-brush"></a>
+                </td>
+                <td>
+                    <a th:href="@{/deleteBook/{id}(id=${book.bookID})}" class="btn btn-danger bi bi-calendar2-x" onclick="return confirm('Bạn có chắc chắn muốn xóa cuốn sách này không?');"></a>
+                </td>
             </tr>
         </tbody>
     </table>

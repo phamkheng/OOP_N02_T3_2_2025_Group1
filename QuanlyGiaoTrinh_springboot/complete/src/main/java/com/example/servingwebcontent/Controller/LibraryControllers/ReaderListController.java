@@ -19,9 +19,7 @@ public class ReaderListController {
         ReaderAiven ra = new ReaderAiven();
         readerList = ra.readerAivenList();
         model.addAttribute("ListOfReaders", readerList);
-        
-        // data to View is ${ListOfReaders}
-        // return view is readerlist
+       
         return "readerlist";
     }
 } 

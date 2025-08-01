@@ -6,19 +6,19 @@ import java.util.ArrayList;
 public class LibraryManager implements LibraryInterface {
     private ArrayList<Object> list = new ArrayList<>();
 
-    @Override
+
     public ArrayList<Object> createObject(Object obj) {
         list.add(obj);
         return list;
     }
 
-    @Override
+
     public ArrayList<Object> deleteObject(Object obj) {
         list.remove(obj);
         return list;
     }
 
-    @Override
+
     public ArrayList<Object> editObject(Object obj) {
         // Ví dụ đơn giản: xóa rồi thêm lại
         deleteObject(obj);
@@ -26,7 +26,7 @@ public class LibraryManager implements LibraryInterface {
         return list;
     }
 
-    @Override
+    
     public void readObject() {
         System.out.println("=== readObject() ===");
         for (Object o : list) {
@@ -34,7 +34,7 @@ public class LibraryManager implements LibraryInterface {
         }
     }
 
-    @Override
+  
     public void readObject(ArrayList<Object> o) {
         System.out.println("=== readObject(list) ===");
         for (Object x : o) {
@@ -42,7 +42,7 @@ public class LibraryManager implements LibraryInterface {
         }
     }
 
-    @Override
+
     public void test() {
         readObject();
     }

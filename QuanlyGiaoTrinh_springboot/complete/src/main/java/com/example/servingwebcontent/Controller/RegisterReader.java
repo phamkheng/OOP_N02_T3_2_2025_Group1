@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 import com.example.servingwebcontent.Model.Reader;
 
-//  CẬP NHẬP THÔNG TIN NGƯỜI ĐỌC MỚI 
+
 public class RegisterReader {
      private ArrayList<Reader> readers;
     private Scanner scanner;

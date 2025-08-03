@@ -1,36 +1,14 @@
 package com.example.servingwebcontent.Controller.LibraryControllers;
 
-import com.example.servingwebcontent.Database.BookAiven;
-import com.example.servingwebcontent.Model.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.UUID;
+import com.example.servingwebcontent.Database.BookInsertAiven;
+import com.example.servingwebcontent.Model.Book;
 
-@Controller
-public class LibraryMainController {
-
-    @GetMapping({"/", "/index"})
-    public String homePage(Model model) {
-        model.addAttribute("book", new Book());
-        return "index";
-    }
-
-    @PostMapping("/addBook")
-    public String addBook(@ModelAttribute Book book) {
-        String uniqueID = "S" + UUID.randomUUID().toString().substring(0, 4).toUpperCase();
-        book.setBookID(uniqueID);
-        book.setAvailable(true);
-
-        BookAiven bookDb = new BookAiven();
-        bookDb.insertBook(book);
-
-        return "redirect:/booklist";
-    }
-}
 @Controller
 public class LibraryMainController {
 

@@ -6,33 +6,6 @@ import java.util.ArrayList;
 import com.example.servingwebcontent.Model.Book;
 
 public class BookAiven {
-
-    public void insertBook(Book book) {
-        try {
-            myDBConnection my = new myDBConnection();
-            java.sql.Connection conn = my.getConn();
-            
-            String sql = "INSERT INTO Books (bookID, title, author, isAvailable, quantity) VALUES (?, ?, ?, ?, ?)";
-            
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, book.getBookID());
-            pstmt.setString(2, book.getTitle());
-            pstmt.setString(3, book.getAuthor());
-            pstmt.setBoolean(4, book.isAvailable());
-            pstmt.setInt(5, book.getQuantity());
-            
-            pstmt.executeUpdate();
-            
-            System.out.println("Đã thêm thành công sách: " + book.getTitle());
-            
-            pstmt.close();
-            conn.close();
-        } catch (Exception e) {
-            System.out.println("Lỗi khi thêm sách vào database: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
     ArrayList<Book> items = new ArrayList<Book>();
 
     public ArrayList<Book> bookAivenList() {

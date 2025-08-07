@@ -1,5 +1,8 @@
 package Model;
 
+import Model.Loan;
+import Model.Book;
+
 public class Reader {
     public String readerID;
     public String name;

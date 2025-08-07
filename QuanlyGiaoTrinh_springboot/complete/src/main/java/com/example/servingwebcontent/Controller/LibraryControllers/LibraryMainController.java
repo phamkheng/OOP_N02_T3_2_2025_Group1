@@ -22,32 +22,29 @@ public class LibraryMainController {
         return "library";
     }
 
-    @PostMapping("/add-Book")
-    public String addBook(@RequestParam String bookID, 
-                         @RequestParam String title, 
-                         @RequestParam String author, 
-                         @RequestParam(defaultValue = "true") boolean isAvailable,
-                         @RequestParam(defaultValue = "1") int quantity, 
-                         Model model) {
-        try {
-            Book book = new Book(bookID, title, author);
-            book.isAvailable = isAvailable;
-            book.quantity = quantity;
-            
-            BookInsertAiven bia = new BookInsertAiven();
-            bia.insertToAivenDb(book);
-            
-            model.addAttribute("message", "Thêm sách thành công!");
-            model.addAttribute("book", book);
-            
-        } catch (Exception e) {
-            model.addAttribute("error", "Lỗi khi thêm sách: " + e.getMessage());
-        }
-        
-        return "add-book";
+@GetMapping({"/add-Book", "/add-book"})
+public String addBookForm() {
+    return "add-book";
+}
+
+@PostMapping({"/add-Book", "/add-book"})
+public String addBook(@RequestParam String bookID, 
+                     @RequestParam String title, 
+                     @RequestParam String author, 
+                     @RequestParam(defaultValue = "true") boolean isAvailable,
+                     @RequestParam(defaultValue = "1") int quantity, 
+                     Model model) {
+    try {
+        Book book = new Book(bookID, title, author);
+        book.isAvailable = isAvailable;
+        book.quantity = quantity;
+        BookInsertAiven bia = new BookInsertAiven();
+        bia.insertToAivenDb(book);
+        model.addAttribute("message", "Thêm sách thành công!");
+        model.addAttribute("book", book);
+    } catch (Exception e) {
+        model.addAttribute("error", "Lỗi khi thêm sách: " + e.getMessage());
     }
-    @GetMapping("/add-Book")
-    public String addBookForm() {
-        return "add-book";
+    return "add-book";
     }
-} 
+}

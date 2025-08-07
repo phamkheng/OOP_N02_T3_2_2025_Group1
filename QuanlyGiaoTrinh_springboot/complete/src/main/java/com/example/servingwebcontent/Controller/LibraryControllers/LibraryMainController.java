@@ -22,14 +22,13 @@ public class LibraryMainController {
         return "library";
     }
 
-    @PostMapping("/addBook")
+    @PostMapping("/add-Book")
     public String addBook(@RequestParam String bookID, 
                          @RequestParam String title, 
                          @RequestParam String author, 
                          @RequestParam(defaultValue = "true") boolean isAvailable,
                          @RequestParam(defaultValue = "1") int quantity, 
                          Model model) {
-        
         try {
             Book book = new Book(bookID, title, author);
             book.isAvailable = isAvailable;
@@ -45,6 +44,10 @@ public class LibraryMainController {
             model.addAttribute("error", "Lỗi khi thêm sách: " + e.getMessage());
         }
         
-        return "addbook";
+        return "add-book";
+    }
+    @GetMapping("/add-Book")
+    public String addBookForm() {
+        return "add-book";
     }
 } 

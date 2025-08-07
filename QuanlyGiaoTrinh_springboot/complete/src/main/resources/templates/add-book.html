@@ -7,24 +7,37 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2>Thêm Giáo Trình Mới</h2>
+    <h2>Thêm Sách Mới</h2>
     <hr/>
-    <form th:action="@{/save-book}" th:object="${book}" method="post">
+    <form th:action="@{/add-Book}" method="post">
         <div class="form-group">
-            <label for="title">Tên Giáo Trình:</label>
-            <input type="text" th:field="*{title}" id="title" class="form-control" placeholder="Nhập tên giáo trình" required>
+            <label for="bookID">Mã Sách:</label>
+            <input type="text" name="bookID" id="bookID" class="form-control" placeholder="Nhập mã sách" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Tên Sách:</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Nhập tên sách" required>
         </div>
         <div class="form-group">
             <label for="author">Tác Giả:</label>
-            <input type="text" th:field="*{author}" id="author" class="form-control" placeholder="Nhập tên tác giả" required>
+            <input type="text" name="author" id="author" class="form-control" placeholder="Nhập tên tác giả" required>
         </div>
         <div class="form-group">
             <label for="quantity">Số Lượng:</label>
-            <input type="number" th:field="*{quantity}" id="quantity" class="form-control" placeholder="Nhập số lượng" required min="1">
+            <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Nhập số lượng" required min="1">
+        </div>
+        <div class="form-group">
+            <label for="isAvailable">Trạng Thái:</label>
+            <select name="isAvailable" id="isAvailable" class="form-control">
+                <option value="true" selected>Có sẵn</option>
+                <option value="false">Đã mượn</option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Lưu Sách</button>
         <a th:href="@{/booklist}" class="btn btn-secondary">Hủy</a>
     </form>
+    <div th:if="${message}" class="alert alert-success mt-3" th:text="${message}"></div>
+    <div th:if="${error}" class="alert alert-danger mt-3" th:text="${error}"></div>
 </div>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<settings>
+  <proxies>
+    <proxy>
+      <id>example-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.yourcompany.com</host>
+      <port>8080</port>
+      <username>your-username</username>
+      <password>your-password</password>
+    </proxy>
+  </proxies>
+</settings>

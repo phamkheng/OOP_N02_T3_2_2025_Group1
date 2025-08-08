@@ -17,6 +17,22 @@ public class Reader {
         this.phone = phone;
     }
 
+    public String getReaderID() {
+        return readerID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public void borrowBook(Book book, Loan loan) {
         borrowedBooks[borrowedCount++] = loan;
         book.markAsBorrowed();
@@ -25,7 +41,6 @@ public class Reader {
     public void returnBook(Loan loan) {
         for (int i = 0; i < borrowedCount; i++) {
             if (borrowedBooks[i] == loan) {
-                
                 for (int j = i; j < borrowedCount - 1; j++) {
                     borrowedBooks[j] = borrowedBooks[j + 1];
                 }
@@ -34,15 +49,15 @@ public class Reader {
             }
         }
     }
+
     public void viewBorrowHistory() {
         System.out.println("Độc giả: " + name);
         System.out.println("ID: " + readerID);
         System.out.println("Email: " + email);
         System.out.println("SĐT: " + phone);
-        if(borrowedCount == 0){
+        if (borrowedCount == 0) {
             System.out.println("Chưa muợn sách nào.");
-        }
-        else{
+        } else {
             System.out.println("Lịch sử mượn sách:");
             for (int i = 0; i < borrowedCount; i++) {
                 System.out.println("ID sách: " + borrowedBooks[i].book.bookID);

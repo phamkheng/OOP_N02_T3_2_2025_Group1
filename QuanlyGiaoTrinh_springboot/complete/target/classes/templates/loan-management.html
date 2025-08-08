@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản Lý Phiếu Mượn - Thư Viện</title>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -16,15 +16,17 @@
     <!-- Navigation -->
     <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
         <div class="bg-dark p-4">
-          <h5 class="text-body-emphasis h4">Thư Viện Giáo Trình</h5>
-          <span class="text-body-secondary">OOP Introduction - Loan Management.</span>
+            <h5 class="text-body-emphasis h4">Thư Viện Giáo Trình</h5>
+            <span class="text-body-secondary">OOP Introduction - Loan Management</span>
         </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
     </nav>
 
@@ -33,17 +35,15 @@
             <i class="bi bi-house"></i> Trang Chủ
         </a>
 
-        <!-- Page Title -->
         <div class="text-center mb-4">
             <h1 style="color: darkcyan;">
                 <i class="bi bi-journal-bookmark"></i> Quản Lý Phiếu Mượn
             </h1>
         </div>
 
-        <!-- Alert Messages -->
         <div id="alertContainer"></div>
 
-        <!-- Add Loan Form -->
+        <!-- Thêm Phiếu Mượn -->
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
                 <h5><i class="bi bi-plus-circle"></i> Thêm Phiếu Mượn Mới</h5>
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <!-- Delete Loan Form -->
+        <!-- Xóa Phiếu Mượn -->
         <div class="card mb-4">
             <div class="card-header bg-danger text-white">
                 <h5><i class="bi bi-trash"></i> Xóa Phiếu Mượn</h5>
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <!-- Loan List -->
+        <!-- Danh Sách Phiếu Mượn -->
         <div class="card">
             <div class="card-header bg-info text-white">
                 <h5><i class="bi bi-list-ul"></i> Danh Sách Phiếu Mượn</h5>
@@ -118,18 +118,18 @@
                     <table class="table table-striped table-hover">
                         <thead class="table-dark">
                             <tr>
-                                <th><i class="bi bi-hash"></i> Mã Mượn</th>
-                                <th><i class="bi bi-person-vcard"></i> Độc Giả</th>
-                                <th><i class="bi bi-book"></i> Sách</th>
-                                <th><i class="bi bi-calendar-check"></i> Ngày Mượn</th>
-                                <th><i class="bi bi-calendar-x"></i> Ngày Hết Hạn</th>
-                                <th><i class="bi bi-calendar2-check"></i> Ngày Trả</th>
-                                <th><i class="bi bi-check-circle"></i> Trạng Thái</th>
-                                <th><i class="bi bi-gear"></i> Thao Tác</th>
+                                <th>Mã Mượn</th>
+                                <th>Độc Giả</th>
+                                <th>Sách</th>
+                                <th>Ngày Mượn</th>
+                                <th>Ngày Hết Hạn</th>
+                                <th>Ngày Trả</th>
+                                <th>Trạng Thái</th>
+                                <th>Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody id="loanTableBody">
-                            <!-- Loan data will be loaded here -->
+                            <!-- Dữ liệu sẽ được thêm bằng JS -->
                         </tbody>
                     </table>
                 </div>
@@ -137,158 +137,119 @@
         </div>
     </div>
 
+    <!-- JS -->
     <script>
-        // Show alert message
         function showAlert(message, type = 'info') {
-            const alertContainer = document.getElementById('alertContainer');
-            const alertDiv = document.createElement('div');
-            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
-            alertDiv.innerHTML = `
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
                 ${message}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             `;
-            alertContainer.appendChild(alertDiv);
-            
-            // Auto-dismiss after 5 seconds
-            setTimeout(() => {
-                if (alertDiv.parentNode) {
-                    alertDiv.remove();
-                }
-            }, 5000);
+            container.appendChild(alert);
+            setTimeout(() => alert.remove(), 5000);
         }
 
-        // Add loan form submission
-        document.getElementById('addLoanForm').addEventListener('submit', function(e) {
+        document.getElementById('addLoanForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const formData = new FormData(this);
-            const params = new URLSearchParams(formData);
-            
+            const params = new URLSearchParams(new FormData(this));
             fetch('/loans/add', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: params
             })
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
                 if (data.success) {
                     showAlert(data.message, 'success');
                     this.reset();
-                    loadLoans(); // Refresh the loan list
+                    loadLoans();
                 } else {
                     showAlert(data.message, 'danger');
                 }
             })
-            .catch(error => {
-                showAlert('Lỗi kết nối: ' + error.message, 'danger');
-            });
+            .catch(err => showAlert('Lỗi kết nối: ' + err.message, 'danger'));
         });
 
-        // Delete loan form submission
-        document.getElementById('deleteLoanForm').addEventListener('submit', function(e) {
+        document.getElementById('deleteLoanForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
             const loanID = document.getElementById('deleteLoanID').value;
-            
             if (confirm('Bạn có chắc chắn muốn xóa phiếu mượn này?')) {
-                fetch(`/loans/delete/${loanID}`, {
-                    method: 'DELETE'
-                })
-                .then(response => response.json())
+                fetch(`/loans/delete/${loanID}`, { method: 'DELETE' })
+                .then(res => res.json())
                 .then(data => {
                     if (data.success) {
                         showAlert(data.message, 'success');
                         this.reset();
-                        loadLoans(); // Refresh the loan list
+                        loadLoans();
                     } else {
                         showAlert(data.message, 'danger');
                     }
                 })
-                .catch(error => {
-                    showAlert('Lỗi kết nối: ' + error.message, 'danger');
-                });
+                .catch(err => showAlert('Lỗi kết nối: ' + err.message, 'danger'));
             }
         });
 
-        // Load loans from server
         function loadLoans() {
             fetch('/loans/list')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
-                if (data.success) {
-                    const tbody = document.getElementById('loanTableBody');
-                    tbody.innerHTML = '';
-                    
-                    if (data.loans.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="8" class="text-center">Không có phiếu mượn nào</td></tr>';
-                        return;
-                    }
-                    
-                    data.loans.forEach(loan => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${loan.loanID}</td>
-                            <td>${loan.readerName} (${loan.readerID})</td>
-                            <td>${loan.bookTitle} (${loan.bookID})</td>
-                            <td>${loan.borrowDate}</td>
-                            <td>${loan.dueDate}</td>
-                            <td>${loan.returnDate || 'Chưa trả'}</td>
-                            <td>
-                                <span class="badge ${loan.status === 'Returned' ? 'bg-success' : 'bg-warning'}">
-                                    ${loan.status === 'Returned' ? 'Đã trả' : 'Đang mượn'}
-                                </span>
-                            </td>
-                            <td>
-                                <button class="btn btn-sm btn-danger" onclick="deleteLoanById('${loan.loanID}')">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        `;
-                        tbody.appendChild(row);
-                    });
-                } else {
-                    showAlert('Lỗi khi tải danh sách: ' + data.message, 'danger');
+                const tbody = document.getElementById('loanTableBody');
+                tbody.innerHTML = '';
+                if (!data.success || data.loans.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="text-center">Không có phiếu mượn nào</td></tr>';
+                    return;
                 }
+                data.loans.forEach(loan => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${loan.loanID}</td>
+                        <td>${loan.readerName} (${loan.readerID})</td>
+                        <td>${loan.bookTitle} (${loan.bookID})</td>
+                        <td>${loan.borrowDate}</td>
+                        <td>${loan.dueDate}</td>
+                        <td>${loan.returnDate || 'Chưa trả'}</td>
+                        <td>
+                            <span class="badge ${loan.status === 'Returned' ? 'bg-success' : 'bg-warning'}">
+                                ${loan.status === 'Returned' ? 'Đã trả' : 'Đang mượn'}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteLoanById('${loan.loanID}')">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
             })
-            .catch(error => {
-                showAlert('Lỗi kết nối: ' + error.message, 'danger');
-            });
+            .catch(err => showAlert('Lỗi kết nối: ' + err.message, 'danger'));
         }
 
-        // Delete loan by ID (from table button)
         function deleteLoanById(loanID) {
-            if (confirm('Bạn có chắc chắn muốn xóa phiếu mượn ' + loanID + '?')) {
-                fetch(`/loans/delete/${loanID}`, {
-                    method: 'DELETE'
-                })
-                .then(response => response.json())
+            if (confirm(`Bạn có chắc chắn muốn xóa phiếu mượn ${loanID}?`)) {
+                fetch(`/loans/delete/${loanID}`, { method: 'DELETE' })
+                .then(res => res.json())
                 .then(data => {
                     if (data.success) {
                         showAlert(data.message, 'success');
-                        loadLoans(); // Refresh the loan list
+                        loadLoans();
                     } else {
                         showAlert(data.message, 'danger');
                     }
                 })
-                .catch(error => {
-                    showAlert('Lỗi kết nối: ' + error.message, 'danger');
-                });
+                .catch(err => showAlert('Lỗi kết nối: ' + err.message, 'danger'));
             }
         }
 
-        // Load loans when page loads
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadLoans();
-            
-            // Set default dates
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('borrowDate').value = today;
-            
-            const dueDate = new Date();
-            dueDate.setDate(dueDate.getDate() + 14); // 2 weeks from today
-            document.getElementById('dueDate').value = dueDate.toISOString().split('T')[0];
+            const due = new Date();
+            due.setDate(due.getDate() + 14);
+            document.getElementById('dueDate').value = due.toISOString().split('T')[0];
         });
     </script>
 </body>

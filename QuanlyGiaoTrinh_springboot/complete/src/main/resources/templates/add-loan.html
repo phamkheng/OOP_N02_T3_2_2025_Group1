@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm Mượn Trả</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Thêm Mượn Trả</h2>
+
+<form th:action="@{/loan/add}" th:object="${loan}" method="post">
+    <label>Độc Giả:</label>
+    <select th:field="*{reader}">
+        <option th:each="reader : ${readers}" th:value="${reader}" 
+                th:text="${reader.readerId + ' - ' + reader.name}">Reader</option>
+    </select><br><br>
+
+    <label>Sách:</label>
+    <select th:field="*{book}">
+        <option th:each="book : ${books}" th:value="${book}" 
+                th:text="${book.bookId + ' - ' + book.title}">Book</option>
+    </select><br><br>
+
+    <label>Ngày mượn:</label>
+    <input type="date" th:field="*{loanDate}" /><br><br>
+
+    <label>Ngày trả:</label>
+    <input type="date" th:field="*{returnDate}" /><br><br>
+
+    <label>Trạng thái:</label>
+    <select th:field="*{status}">
+        <option value="Đang mượn">Đang mượn</option>
+        <option value="Đã trả">Đã trả</option>
+    </select><br><br>
+
+    <button type="submit">Lưu</button>
+</form>
+
+<a href="/loanlist">Quay lại danh sách</a>
+</body>
+</html>

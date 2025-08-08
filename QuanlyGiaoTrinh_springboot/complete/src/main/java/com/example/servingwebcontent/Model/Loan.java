@@ -32,4 +32,7 @@ public class Loan {
         }
         return false;
     }
+    public Reader getReader() {
+    return reader;
+}
 }

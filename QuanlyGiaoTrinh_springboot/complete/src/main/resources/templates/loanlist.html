@@ -47,7 +47,7 @@
         <tbody>
             <tr th:each="loan : ${ListOfLoans}">
                 <td data-sortable="true"><span th:text="${loan.loanID}">LoanID</span></td>
-                <td><span th:text="${loan.readerID}">ReaderID</span></td>
+                <td th:text="${loan.reader.readerID}">ReaderID</td>
                 <td><span th:text="${loan.bookID}">BookID</span></td>
                 <td><span th:text="${loan.borrowDate}">Borrow Date</span></td>
                 <td><span th:text="${loan.returnDate}">Return Date</span></td>

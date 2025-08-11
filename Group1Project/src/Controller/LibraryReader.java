@@ -57,18 +57,29 @@ public class LibraryReader {
         return true;
     }
 
-    // Xóa độc giả theo ID
-    public boolean deleteReader(String readerId) {
-        for (int i = 0; i < listReaders.size(); i++) {
-            if (listReaders.get(i).readerID.equals(readerId)) {
-                listReaders.remove(i);
-                System.out.println("Xóa thành công độc giả có ID: " + readerId);
-                return true;
-            }
+   // Hàm xóa độc giả theo tên hoặc mã
+    public void deleteReaderFlexible() {
+        if (listReaders.isEmpty()) {
+            System.out.println("Danh sách độc giả hiện đang trống.");
+            return;
         }
-        System.out.println("Không tìm thấy độc giả với ID: " + readerId);
-        return false;
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập mã hoặc tên độc giả cần xóa: ");
+        String input = sc.nextLine().trim();
+
+        boolean removed = listReaders.removeIf(reader ->
+            reader.readerID.equalsIgnoreCase(input) ||
+            reader.name.equalsIgnoreCase(input)
+        );
+
+        if (removed) {
+        System.out.println("Đã xóa độc giả có mã hoặc tên khớp với: " + input);
+        } else {
+        System.out.println("Không tìm thấy độc giả có mã hoặc tên: " + input);
+        }
     }
+
 
     // In danh sách độc giả
     public void readReaders() {
@@ -87,40 +98,40 @@ public class LibraryReader {
         }
     }
 
-    // Menu test chức năng
-    public static void main(String[] args) {
-        LibraryReader lib = new LibraryReader();
-        Scanner sc = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("\n===== QUẢN LÝ ĐỘC GIẢ =====");
-            System.out.println("1. Nhập danh sách độc giả");
-            System.out.println("2. Xem danh sách độc giả");
-            System.out.println("3. Xóa độc giả theo ID");
-            System.out.println("4. Thoát");
-            System.out.print("Chọn: ");
-
-            int choice = Integer.parseInt(sc.nextLine());
-
-            switch (choice) {
-                case 1:
-                    lib.inputReaders();
-                    break;
-                case 2:
-                    lib.readReaders();
-                    break;
-                case 3:
-                    System.out.print("Nhập ID độc giả cần xóa: ");
-                    String id = sc.nextLine();
-                    lib.deleteReader(id);
-                    break;
-                case 4:
-                    System.out.println("Thoát chương trình.");
-                    sc.close();
-                    return;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ.");
+    // Tìm kiếm theo tên
+    public Reader findReaderByName(String name) {
+        for (Reader r : listReaders) {
+            if (r.name.equalsIgnoreCase(name)) {
+                return r;
             }
+        }
+        return null;
+    }
+
+    // Tìm kiếm theo ID
+    public Reader findReaderById(String id) {
+        for (Reader r : listReaders) {
+            if (r.readerID.equalsIgnoreCase(id)) {
+                return r;
+            }
+        }
+        return null;
+    }
+
+    // Hiển thị kết quả tìm kiếm
+    public void searchReaderByName() {
+        System.out.print("Nhập tên độc giả cần tìm: ");
+        String name = sc.nextLine();
+        Reader result = findReaderByName(name);
+
+        if (result != null) {
+            System.out.println("Đã tìm thấy độc giả:");
+            System.out.println("Reader ID: " + result.readerID);
+            System.out.println("Name: " + result.name);
+            System.out.println("Email: " + result.email);
+            System.out.println("Phone: " + result.phone);
+        } else {
+            System.out.println("Không tìm thấy độc giả có tên: " + name);
         }
     }
 }

@@ -79,7 +79,7 @@ Cài đặt--Chạy
 ## 📊 Activity Diagram – tìm kiếm bạn đọc
 ![Activity Diagram ](../main/images/flowchart_tim_ban_doc.png)
 ## 📊 Activity Diagram – xóa bạn đọc
-![Activity Diagram ](../main/images/flowchart_xoa_ban_doc.png)
+![Activity Diagram ](../main/images/xoa_ban_doc.png)
 
 
 📚 Mô tả đối tượng

@@ -1,5 +1,5 @@
 import Controller.BookSearch;
-import data.BookList;
+import Data.BookList;
 
 public class TestBookSearch {
     public static void test() {

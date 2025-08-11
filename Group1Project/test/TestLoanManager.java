@@ -6,6 +6,7 @@ import Controller.LibraryReader;
 import Controller.LoanManager;
 import Model.Book;
 import Model.Reader;
+import Data.BookList;
 public class TestLoanManager {
     public static void test(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);

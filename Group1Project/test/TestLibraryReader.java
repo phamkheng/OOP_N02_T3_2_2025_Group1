@@ -1,36 +1,32 @@
-package test;
+
+import java.util.Scanner;
 
 import Controller.LibraryReader;
 import Model.Reader;
 
 public class TestLibraryReader {
+    public static void test() {
+        LibraryReader libraryReader = new LibraryReader();
+        Reader r1 = new Reader("R001", "Viet Hung", "a@gmail.com", "0123456789");
+        Reader r2 = new Reader("R002", "Pham Khang", "b@gmail.com", "0987654321");
+        Reader r3 = new Reader("R003", "Pham Khoa", "c@gmail.com", "0111222333");
 
-    public static void runTest() {
-        LibraryReader lib = new LibraryReader();
+        libraryReader.addReader(r1);
+        libraryReader.addReader(r2);
+        libraryReader.addReader(r3);
 
-        // Thêm độc giả mẫu
-        Reader r1 = new Reader("DG001", "Nguyen Van A", "a@example.com", "0123456789");
-        Reader r2 = new Reader("DG002", "Tran Thi B", "b@example.com", "0987654321");
-        Reader r3 = new Reader("DG003", "Le Van C", "c@example.com", "0111222333");
+        System.out.println("========== Danh sách sau khi thêm ==========");
+        libraryReader.readReaders();
 
-        lib.addReader(r1);
-        lib.addReader(r2);
-        lib.addReader(r3);
+        System.out.println("========== Xóa bạn đọc R001 ==========");
+        libraryReader.deleteReader("R001");
+        libraryReader.readReaders();
 
-        // In danh sách ban đầu
-        System.out.println("=== DANH SÁCH BAN ĐẦU ===");
-        lib.readReaders();
+        System.out.println("========== Chỉnh sửa bạn đọc R003 ==========");
+        Scanner sc = new Scanner(System.in);
+        libraryReader.editReader("R003", sc);
 
-        // Xóa 1 độc giả
-        System.out.println("\n=== XÓA ĐỘC GIẢ CÓ ID DG002 ===");
-        lib.deleteReader("DG002");
-
-        // In danh sách sau khi xóa
-        System.out.println("\n=== DANH SÁCH SAU KHI XÓA ===");
-        lib.readReaders();
-
-        // Thử xóa ID không tồn tại
-        System.out.println("\n=== THỬ XÓA ID KHÔNG TỒN TẠI ===");
-        lib.deleteReader("DG999");
+        System.out.println("========== Danh sách sau khi chỉnh sửa ==========");
+        libraryReader.readReaders();
     }
 }

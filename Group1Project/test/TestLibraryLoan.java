@@ -1,7 +1,8 @@
 import Controller.LibraryLoan;
 import Model.Book;
-import Model.Reader;
 import Model.Loan;
+import Model.Reader;
+
 public class TestLibraryLoan {
     public static void test() {
 

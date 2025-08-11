@@ -1,10 +1,9 @@
 package Controller;
 
-
 import java.util.ArrayList;
 
-import Model.Loan;
 
+import Model.Loan;
 
 public class ReturnProcess {
 

@@ -6,31 +6,47 @@ import java.util.regex.Pattern;
 
 import Model.Reader;
 
-//  CẬP NHẬP THÔNG TIN NGƯỜI ĐỌC MỚI 
 public class RegisterReader {
-     private ArrayList<Reader> readers;
+    private ArrayList<Reader> readers;
     private Scanner scanner;
 
+    // Default constructor dùng System.in
     public RegisterReader() {
-        readers = new ArrayList<>();
-        scanner = new Scanner(System.in);
+        this(new Scanner(System.in));
+    }
+
+    // Constructor để inject Scanner (dùng cho unit test)
+    public RegisterReader(Scanner scanner) {
+        this.readers = new ArrayList<>();
+        this.scanner = scanner;
     }
 
     public void registerNewReader() {
-        boolean tryAgain;
+        boolean tryAgain = false;
         do {
             System.out.println("=== Đăng ký bạn đọc mới ===");
             System.out.print("Nhập readerID: ");
-            String readerID = scanner.nextLine();
+            String readerID = "";
+
+            while (readerID.isEmpty()) {
+                if (!scanner.hasNextLine()) {
+                    System.out.println("Không còn input. Dừng đăng ký.");
+                    return; // thoát an toàn nếu input đã hết
+                }
+                readerID = scanner.nextLine().trim();
+            }
 
             System.out.print("Nhập tên: ");
-            String name = scanner.nextLine();
+            if (!scanner.hasNextLine()) { System.out.println("Không còn input."); return; }
+            String name = scanner.nextLine().trim();
 
             System.out.print("Nhập email: ");
-            String email = scanner.nextLine();
+            if (!scanner.hasNextLine()) { System.out.println("Không còn input."); return; }
+            String email = scanner.nextLine().trim();
 
             System.out.print("Nhập số điện thoại: ");
-            String phone = scanner.nextLine();
+            if (!scanner.hasNextLine()) { System.out.println("Không còn input."); return; }
+            String phone = scanner.nextLine().trim();
 
             if (isValidInfo(readerID, name, email, phone)) {
                 Reader newReader = new Reader(readerID, name, email, phone);
@@ -39,8 +55,8 @@ public class RegisterReader {
                 break;
             } else {
                 System.out.println(">>> Thông tin không hợp lệ!");
-
                 System.out.print("Bạn có muốn thử lại không? (có/không): ");
+                if (!scanner.hasNextLine()) { System.out.println("Không còn input."); return; }
                 String answer = scanner.nextLine().trim().toLowerCase();
                 tryAgain = answer.equals("có");
             }

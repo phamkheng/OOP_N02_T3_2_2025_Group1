@@ -1,7 +1,6 @@
 package Controller;
 import java.util.Scanner;
-
-import data.BookList;
+import Data.BookList;
 
 public class BookSearch {
     private BookList bookList;

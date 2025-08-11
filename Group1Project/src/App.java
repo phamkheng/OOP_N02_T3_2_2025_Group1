@@ -1,16 +1,10 @@
-import test.LibraryReaderTest;
+import test.TestLibraryReader;
+import test.TestRegisterReader;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-      TestBookSearch test = new TestBookSearch();
-
-       //LibraryReaderTest test = new LibraryReaderTest();
-
-        //test.testAddReaders();
-        //test.testEditReader();
-        //test.testDeleteReader();
-
-
+       TestLibraryReader khang = new TestLibraryReader();
+       khang.runTest();
     }
 }

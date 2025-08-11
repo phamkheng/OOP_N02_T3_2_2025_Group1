@@ -1,11 +1,43 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import Model.Reader;
 
 public class LibraryReader {
 
     private ArrayList<Reader> listReaders = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
+
+    // Nhập n độc giả
+    public void inputReaders() {
+        System.out.print("Nhập số lượng độc giả cần thêm: ");
+        int n = Integer.parseInt(sc.nextLine());
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Nhập thông tin độc giả thứ " + (i + 1) + ":");
+
+            System.out.print("Reader ID: ");
+            String id = sc.nextLine();
+
+            System.out.print("Tên: ");
+            String name = sc.nextLine();
+
+            System.out.print("Email: ");
+            String email = sc.nextLine();
+
+            System.out.print("SĐT: ");
+            String phone = sc.nextLine();
+
+            Reader r = new Reader(id, name, email, phone);
+
+            if (addReader(r)) {
+                System.out.println("Thêm độc giả thành công.\n");
+            } else {
+                System.out.println("Thêm độc giả thất bại.\n");
+            }
+        }
+    }
 
     // Thêm độc giả, kiểm tra trùng ID
     public boolean addReader(Reader r) {
@@ -30,26 +62,11 @@ public class LibraryReader {
         for (int i = 0; i < listReaders.size(); i++) {
             if (listReaders.get(i).readerID.equals(readerId)) {
                 listReaders.remove(i);
+                System.out.println("Xóa thành công độc giả có ID: " + readerId);
                 return true;
             }
         }
-
         System.out.println("Không tìm thấy độc giả với ID: " + readerId);
-        return false;
-    }
-
-    // Sửa thông tin độc giả
-    public boolean editReader(String readerId, String newName, String newEmail, String newPhone) {
-        for (Reader r : listReaders) {
-            if (r.readerID.equals(readerId)) {
-                if (newName != null && !newName.isEmpty()) r.name = newName;
-                if (newEmail != null && !newEmail.isEmpty()) r.email = newEmail;
-                if (newPhone != null && !newPhone.isEmpty()) r.phone = newPhone;
-                return true;
-            }
-        }
-
-        System.out.println("Không tìm thấy độc giả để chỉnh sửa.");
         return false;
     }
 
@@ -60,6 +77,7 @@ public class LibraryReader {
             return;
         }
 
+        System.out.println("Danh sách độc giả hiện tại:");
         for (Reader r : listReaders) {
             System.out.println("Reader ID: " + r.readerID);
             System.out.println("Name: " + r.name);
@@ -69,18 +87,40 @@ public class LibraryReader {
         }
     }
 
-    // Trả về danh sách độc giả (nếu cần xử lý từ lớp khác)
-    public ArrayList<Reader> getAllReaders() {
-        return listReaders;
-    }
+    // Menu test chức năng
+    public static void main(String[] args) {
+        LibraryReader lib = new LibraryReader();
+        Scanner sc = new Scanner(System.in);
 
-    // Tìm độc giả theo ID
-    public Reader findReaderById(String readerId) {
-        for (Reader r : listReaders) {
-            if (r.readerID.equals(readerId)) {
-                return r;
+        while (true) {
+            System.out.println("\n===== QUẢN LÝ ĐỘC GIẢ =====");
+            System.out.println("1. Nhập danh sách độc giả");
+            System.out.println("2. Xem danh sách độc giả");
+            System.out.println("3. Xóa độc giả theo ID");
+            System.out.println("4. Thoát");
+            System.out.print("Chọn: ");
+
+            int choice = Integer.parseInt(sc.nextLine());
+
+            switch (choice) {
+                case 1:
+                    lib.inputReaders();
+                    break;
+                case 2:
+                    lib.readReaders();
+                    break;
+                case 3:
+                    System.out.print("Nhập ID độc giả cần xóa: ");
+                    String id = sc.nextLine();
+                    lib.deleteReader(id);
+                    break;
+                case 4:
+                    System.out.println("Thoát chương trình.");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Lựa chọn không hợp lệ.");
             }
         }
-        return null;
     }
 }

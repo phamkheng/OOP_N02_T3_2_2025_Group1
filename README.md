@@ -76,6 +76,10 @@ Cài đặt--Chạy
 ![Activity Diagram ](../main/images/timsach.png)
 ## 📊 Activity Diagram – đăng ký bạn đọc mới
 ![Activity Diagram ](../main/images/dangkybandocmoi.png)
+## 📊 Activity Diagram – tìm kiếm bạn đọc
+![Activity Diagram ](../main/images/flowchart_tim_ban_doc.png)
+## 📊 Activity Diagram – xóa bạn đọc
+![Activity Diagram ](../main/images/flowchart_xoa_ban_doc.png)
 
 
 📚 Mô tả đối tượng

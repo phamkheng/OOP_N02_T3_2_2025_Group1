@@ -1,13 +1,13 @@
 # Textbook Library Management System 🎉
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Chào+mừng+đến+với+ứng+dụng+quản+lí+thư+viện;Nhóm+01+OOP_N02_T3_2_2025_" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=700&height=70&lines=Chào+mừng+đến+với+ứng+dụng+quản+lí+thư+viện;Nhóm+01+OOP_N02_T3_2_2025_" alt="Typing SVG" />
 </p>
 
 <p align="center">
   <a href="https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1">
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="70" alt="Developer Badge" />
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="70" alt="Contributor Badge" />
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="50" alt="Developer Badge" />
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="50" alt="Contributor Badge" />
   </a>
 </p>
 

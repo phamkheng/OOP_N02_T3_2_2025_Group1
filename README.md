@@ -1,7 +1,7 @@
 # Textbook Library Management System 🎉
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Chào+mừng+đến+với+ứng+dụng+quản+lí+thư+viện+giáo+trình;Nhóm+01+OOP_N02_T3_2_2025_" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Chào+mừng+đến+với+ứng+dụng+quản+lí+thư+viện;Nhóm+01+OOP_N02_T3_2_2025_" alt="Typing SVG" />
 </p>
 
 <p align="center">
@@ -109,18 +109,14 @@ Cài đặt--Chạy
 ## 📊 Class Diagram 
 ![Class Diagram ](../main/images/class-diagram.png)
 
-## 📊 Activity Diagram – Mượn sách
+## 📊 Activity Diagram – Mượn giáo trình
 ![Activity Diagram Mượn sách](../main/images/muonsach.png)
-## 📊 Activity Diagram – Trả sách  
+## 📊 Activity Diagram – Trả giáo trình 
 ![Activity Diagram ](../main/images/trasach.png)
-## 📊 Activity Diagram – tìm sách  
+## 📊 Activity Diagram – tìm giáo trình  
 ![Activity Diagram ](../main/images/timsach.png)
 ## 📊 Activity Diagram – đăng ký bạn đọc mới
 ![Activity Diagram ](../main/images/dangkybandocmoi.png)
-## 📊 Activity Diagram – tìm kiếm bạn đọc
-![Activity Diagram ](../main/images/flowchart_tim_ban_doc.png)
-## 📊 Activity Diagram – xóa bạn đọc
-![Activity Diagram ](../main/images/xoa_ban_doc.png)
 
 
 📚 Mô tả đối tượng

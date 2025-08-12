@@ -17,17 +17,20 @@
 
 1. [Giới thiệu]
 2. [Thành viên] 
-3. [Ứng dụng] 
-4. [Yêu cầu]  
-5. [Cài đặt & Chạy] 
-6. [Activity Diagram – Mượn sách] 
-7. [Activity Diagram – Trả sách]  
-8. [Cấu trúc thư mục]
-9. [Mô tả đối tượng]  
-10. [Ví dụ sử dụng] 
-11. [Hướng phát triển] 
-12. [Bản quyền]
-Cài đặt--Chạy
+3. [Phân tích đối tượng] 
+4. [cấu trúc thư mục]  
+5. [cấu trúc lớp và phân lớp] 
+6. [kiểm thử chức năng] 
+7. [Các chức năng chính]  
+8. [Class Diagram]
+9. [Activity Diagram]  
+10. [Mô tả đối tượng] 
+11. [Giao diện chương trình] 
+12. [Chức năng nổi bật]
+13. [Công nghệ sử dụng]
+14. [Hướng phát triển]
+15. [Cài đặt--Chạy]
+16. [Tài liệu tham khảo]
 
 
 ## ✨ Giới thiệu

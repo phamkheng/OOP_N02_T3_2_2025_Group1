@@ -6,8 +6,8 @@
 
 <p align="center">
   <a href="https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1">
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="50" alt="Developer Badge" />
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="50" alt="Contributor Badge" />
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="70" alt="Developer Badge" />
+    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="70" alt="Contributor Badge" />
   </a>
 </p>
 

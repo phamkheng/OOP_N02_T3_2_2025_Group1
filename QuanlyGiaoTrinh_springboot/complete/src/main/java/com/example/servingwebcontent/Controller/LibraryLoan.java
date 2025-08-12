@@ -1,8 +1,7 @@
 package com.example.servingwebcontent.Controller;
+
 import java.util.ArrayList;
 import com.example.servingwebcontent.Model.Loan;
-
-
 
 public class LibraryLoan {
 
@@ -28,6 +27,37 @@ public class LibraryLoan {
         } catch (Exception e) {
             System.out.println("Lỗi khi xóa giao dịch: " + e.getMessage());
         }
+        return listLoans;
+    }
+
+    public ArrayList<Loan> updateLoan(String loanId, Loan updatedLoan) {
+        try {
+            for (int i = 0; i < listLoans.size(); i++) {
+                if (listLoans.get(i).loanID.equals(loanId)) {
+                    listLoans.set(i, updatedLoan);
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi cập nhật giao dịch: " + e.getMessage());
+        }
+        return listLoans;
+    }
+
+    public Loan getLoanById(String loanId) {
+        try {
+            for (Loan l : listLoans) {
+                if (l.loanID.equals(loanId)) {
+                    return l;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Lỗi khi tìm giao dịch: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public ArrayList<Loan> getAllLoans() {
         return listLoans;
     }
 

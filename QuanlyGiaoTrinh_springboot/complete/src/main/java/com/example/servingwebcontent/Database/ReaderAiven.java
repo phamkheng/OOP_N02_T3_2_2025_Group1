@@ -31,4 +31,9 @@ public class ReaderAiven {
         }
         return items;
     }
+
+    public Reader getReaderById(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getReaderById'");
+    }
 }

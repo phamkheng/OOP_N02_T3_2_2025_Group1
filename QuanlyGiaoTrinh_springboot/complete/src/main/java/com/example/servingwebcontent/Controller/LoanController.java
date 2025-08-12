@@ -154,6 +154,12 @@ public class LoanController {
         }
     }
 
+    @GetMapping("/list")
+    public String showLoanListPage(Model model) {
+        model.addAttribute("loans", libraryLoan.listLoans);
+        return "loan-list"; // loan-list.html trong templates
+    }
+
     private Map<String, Object> createLoanResponse(Loan loan) {
         Map<String, Object> loanData = new HashMap<>();
         loanData.put("loanID", loan.loanID);

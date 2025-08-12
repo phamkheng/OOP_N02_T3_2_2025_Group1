@@ -1,4 +1,4 @@
-# Library Management System 🎉
+# Textbook Library Management System 🎉
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=500&height=50&lines=Chào+mừng+đến+với+ứng+dụng+thư+viện;Nhóm+01+OOP_N02_T3_2_2025_" alt="Typing SVG" />

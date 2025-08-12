@@ -208,12 +208,14 @@ Hành vi: markReturned(Date), isOverdue(Date)
 
 ---
 
-🚀 Hướng phát triển
-Thêm giao diện đồ họa (GUI)
+🚀 Hướng phát triển 
 
-Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
+-Thêm giao diện đồ họa (GUI)
 
-Tích hợp RESTful API (Spring Boot)
+-Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
+
+-Tích hợp RESTful API (Spring Boot)
+
 ---
 ## ⚙️ Cài đặt & Chạy
 

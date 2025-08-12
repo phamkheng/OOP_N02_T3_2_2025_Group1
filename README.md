@@ -161,6 +161,10 @@
 ![Activity Diagram ](../main/images/timsach.png)
 ## 📊 Activity Diagram – đăng ký bạn đọc mới
 ![Activity Diagram ](../main/images/dangkybandocmoi.png)
+## 📊 Activity Diagram – xóa bạn đọc
+![Activity Diagram ](../main/images/xoabandoc.png)
+## 📊 Activity Diagram – tìm kiếm bạn đọc
+![Activity Diagram ](../main/images/timkiembandoc.png)
 
 
 📚 Mô tả đối tượng

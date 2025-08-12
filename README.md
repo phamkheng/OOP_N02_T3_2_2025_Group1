@@ -77,9 +77,6 @@ Cài đặt--Chạy
 ---
 ## 🗂️ Cấu trúc thư mục
 
-```plaintext
-
-
 ```Project/
 ├── QuanliGiaoTrinh_springboot/       # Spring Boot
 │   ├── complete/
@@ -109,6 +106,26 @@ Cài đặt--Chạy
 ```
 
 ---
+
+## 🧱 Cấu trúc lớp và phân lớp
+
+### Các lớp chính:
+
+- `Reader`: thông tin người đọc
+- `Book`: thông tin của giáo trình 
+- `Loan`: phiếu mượn/trả
+- `Main`: lớp chạy chính của chương trình
+
+---
+## ✅ Kiểm thử chức năng
+
+| Lớp         | Chức năng kiểm thử chính                                              |
+|-------------|------------------------------------------------------------------------|
+| `Reader`    | Đăng ký, xóa, chỉnh sửa, hiển thị thông tin                           |
+| `Book`      | cập nhập giáo trình, xóa, hiển thị danh sách                          |
+| `Loan`      | cập nhập hạn mượn/trả giáo trình, hiển thị phiếu mượn/trả             |
+
+---
 ## 🛠️ Chức năng chính
 
 - **Quản lý người đọc**:
@@ -129,12 +146,6 @@ Cài đặt--Chạy
 
 ---
 
-## 📆 Yêu cầu
-
-- Java 11 hoặc cao hơn  
-- Maven hoặc IDE Java (IntelliJ IDEA, Eclipse…)
-
----
 
 ## 📊 Class Diagram 
 ![Class Diagram ](../main/images/class-diagram.png)
@@ -169,12 +180,6 @@ Thuộc tính: loanID, book, reader, loanDate, returnDate, status
 Hành vi: markReturned(Date), isOverdue(Date)
 
 ---
-🚀 Hướng phát triển
-Thêm giao diện đồ họa (GUI)
-
-Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
-
-Tích hợp RESTful API (Spring Boot)
 
 ## 🖼️ Giao diện chương trình (Console)
 // chưa đẩy 
@@ -188,7 +193,25 @@ Tích hợp RESTful API (Spring Boot)
 - **Hiển thị dữ liệu chi tiết và rõ ràng dưới giao diện console**
 
 ---
+## 💡 Công nghệ sử dụng
 
+- Ngôn ngữ lập trình: **Java**
+- Mô hình hướng đối tượng (OOP)
+- **Framework**: [Spring Boot](https://spring.io/projects/spring-boot)
+  - Quản lý luồng xử lý, cấu trúc theo mô hình MVC
+- Giao diện: Console (text-based)
+- Lưu trữ: File nhị phân 
+- Cấu trúc dữ liệu: `ArrayList`, `LinkedList`, `Map`,...
+
+---
+
+🚀 Hướng phát triển
+Thêm giao diện đồ họa (GUI)
+
+Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
+
+Tích hợp RESTful API (Spring Boot)
+---
 ## ⚙️ Cài đặt & Chạy
 
 ```bash

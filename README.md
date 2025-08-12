@@ -76,7 +76,50 @@ Cài đặt--Chạy
 
 ---
 ## 🗂️ Cấu trúc thư mục
+
+```plaintext
 Project/
+├── .vscode/                           # Cấu hình cho VSCode
+├── bin/                               # File biên dịch .class (tự tạo khi chạy)
+├── gs-serving-web-content-main/       # Spring Boot
+│   ├── complete/
+│   ├── img/
+│   ├── initial/
+│   │   ├── src/
+│   │   │   ├── main/                                                          # Chứa mô hình MVC
+│   │   │   │   ├── java/com/example/servingwebcontent                         
+│   │   │   │   │                    ├── controller/                           # Các controller
+│   │   │   │   │                    ├── database/                             # Các service, kết nối, truy vấn cơ sở dữ liệu
+│   │   │   │   │                    ├── model/                                # Các class mô hình dữ liệu
+│   │   │   │   │                    └── WebServingContentApplication.java     # Main() để chạy ứng dụng
+│   │   │   │   └── resources/
+│   │   │   │        ├── static/                                               
+│   │   │   │        ├── templates/                                            # Giao diện
+│   │   │   │        └── application.properties                                # File cấu hình ứng dụng
+│   │   │   └── test/java/com/example/servingwebcontent                        
+│   │   │       └── WebServingContentApplicationTest.java                      # Test ứng dụng
+│   │   └── ...
+│   └── ...
+├── review/                             # File bài tập
+├── src/                                # Mã nguồn chính xây dựng từ đầu đến bây giờ
+│   ├── Customer.java
+│   ├── Main.java
+│   ├── Order.java
+│   ├── Payment.java
+│   ├── Product.java
+│   ├── Seller.java
+│   └── ...
+├── test/                               # Thư mục chứa các lớp kiểm thử thủ công
+│   ├── TestOrder.java
+│   ├── TestPayment.java
+│   ├── TestProduct.java
+│   └── ...
+└── README.md                           # Tài liệu mô tả dự án
+```
+
+
+
+```Project/
 ├── QuanliGiaoTrinh_springboot/       # Spring Boot
 │   ├── complete/
 │   │   ├── gradle/wrapper

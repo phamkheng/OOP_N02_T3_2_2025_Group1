@@ -76,7 +76,32 @@ Cài đặt--Chạy
 
 ---
 ## 🗂️ Cấu trúc thư mục
-// chưa làm
+Project/
+├── QuanliGiaoTrinh_springboot/       # Spring Boot
+│   ├── complete/
+│   │   ├── gradle/wrapper
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├──java/com/example/servingwebcontent/
+│   │   │   │   │   ├──Component
+│   │   │   │   │   ├──Controller                                              # Các controller
+│   │   │   │   │   ├──Database                                                # Các service, kết nối, truy vấn cơ sở dữ liệu
+│   │   │   │   │   ├──Model                                                   # Các class mô hình dữ liệu
+│   │   │   │   │      ├──Book.java
+│   │   │   │   │      ├──Reader.java
+│   │   │   │   │      ├──Loan.java
+│   │   │   │   │   ├──test                                                    # File test 
+│   │   │   │   │   ├──ServingWebContentApplication.java                       # Main() để chạy ứng dụng
+│   │   │   │   ├──resources/
+│   │   │   │        ├── static/                                               
+│   │   │   │        ├── templates/                                            # Giao diện
+│   │   │   │        └── application.properties                                # File cấu hình ứng dụng
+│   │   │   ├── test/java/com/example/servingwebcontent/                       # File test ứng dụng
+│   │   ├── target
+│   │   └── ...
+│   └── ...
+├── images
+└── README.md                           # Tài liệu mô tả dự án
 
 ---
 ## 🛠️ Chức năng chính

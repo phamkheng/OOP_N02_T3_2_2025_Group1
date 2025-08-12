@@ -164,7 +164,7 @@
 ## 📊 Activity Diagram – xóa bạn đọc
 ![Activity Diagram ](../main/images/xoabandoc.png)
 ## 📊 Activity Diagram – tìm kiếm bạn đọc
-![Activity Diagram ](../main/images/timkiembandoc.png)
+![Activity Diagram ](../main/images/timkiembandoc.png.png)
 
 
 📚 Mô tả đối tượng

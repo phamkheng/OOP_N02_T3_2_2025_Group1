@@ -223,7 +223,6 @@ Hành vi: markReturned(Date), isOverdue(Date)
 ---
 ## ⚙️ Cài đặt & Chạy
 
-```bash
 git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
 cd OOP_N02_T3_2_2025_Group1
 # Mở project bằng IDE hoặc:

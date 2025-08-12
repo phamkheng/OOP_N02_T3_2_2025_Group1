@@ -1,7 +1,6 @@
 package com.example.servingwebcontent.Controller;
 
 import com.example.servingwebcontent.Controller.Interfaces.LibraryInterface;
-
 public class Callback {
     private LibraryInterface callbackReference;
 

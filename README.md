@@ -32,9 +32,9 @@ Cài đặt--Chạy
 
 ## ✨ Giới thiệu
 
-Ứng dụng **Quản lý Thư viện** được xây dựng theo phong cách **Lập trình Hướng đối tượng (OOP)**, giúp bạn:
+Ứng dụng **Quản lý Thư viện giáo trình** được xây dựng theo phong cách **Lập trình Hướng đối tượng (OOP)**, giúp bạn:
 
-- Quản lý sách (`Book`)  
+- Quản lý giáo trình (`Book`)  
 - Quản lý bạn đọc (`Reader`)  
 - Theo dõi lịch sử mượn/trả (`Loan`)
 
@@ -47,14 +47,55 @@ Cài đặt--Chạy
 | Phạm Năng Khang      | 24100032  | [@phamkheng](https://github.com/phamkheng) |
 | Trần Quốc Việt Hùng  | 24100015  | [@hungspec](https://github.com/hungspec)   |
 | Phạm Việt Khoa       | 24100058  | [@pvkhoa](https://github.com/pvkhoa)       |
+| Nguyễn Lệ Thu        |           | [@nglthu](https://github.com/nglthu)       |
 
 ---
 
-## 🌐 Ứng dụng
+## 🧠 Phân tích đối tượng
 
-- Thêm / sửa / xóa sách và bạn đọc  
-- Cho mượn / trả sách, xem lịch sử giao dịch  
-- Kiểm tra trạng thái sách (Available / Unavailable)
+### 1. 👤 Người đọc (`Reader`)
+- **Thuộc tính**: ID, tên, số điện thoại, email.
+- **Chức năng**:
+  - Đăng ký người đọc
+  - Hiển thị thông tin
+  - Xóa người đọc khỏi danh sách
+
+### 2. 🧾 Giáo trình (`Book`)
+- **Thuộc tính**: ID, tên, tác giả, trang thái (có sẵn/ trống), số lượng.
+- **Chức năng**:
+  - cập nhập giáo trình mới
+  - Hiển thị danh sách giáo trình
+  - Tìm kiếm giáo trình
+  - Xóa giáo trình khỏi danh sách
+
+### 3. 📦 Dịch vụ mượn/trả (`Loan`)
+- **Thuộc tính**: ID, book, reader, ngày mượn, ngày trả, trạng thái
+- **Chức năng**:
+  - Hiển thị thông tin
+  - Cập nhật sau khi mượn/trả
+
+---
+## 🗂️ Cấu trúc thư mục
+// chưa làm
+
+---
+## 🛠️ Chức năng chính
+
+- **Quản lý người đọc**:
+  - Thêm / Sửa / Xóa người đọc
+
+- **Quản lý giáo trình**:
+  - Thêm / Sửa / Xóa giáo trình
+  - Cập nhật số lượng giáo trình sau mỗi lần mượn/trả
+
+- **Quản lý mượn/trả**:
+  - cập nhập ngày mượn/trả
+  - Hiển thị danh sách mượn
+
+- **Lưu trữ dữ liệu**:
+  - Dữ liệu được lưu vào file nhị phân 
+  - Sử dụng `ObjectOutputStream`, `ObjectInputStream`
+  - Áp dụng `ArrayList`, `Map`,... để quản lý dữ liệu trong bộ nhớ
 
 ---
 
@@ -101,12 +142,26 @@ Thuộc tính: loanID, book, reader, loanDate, returnDate, status
 
 Hành vi: markReturned(Date), isOverdue(Date)
 
+---
 🚀 Hướng phát triển
 Thêm giao diện đồ họa (GUI)
 
 Kết nối cơ sở dữ liệu (JDBC / MySQL / SQLite)
 
 Tích hợp RESTful API (Spring Boot)
+
+## 🖼️ Giao diện chương trình (Console)
+// chưa đẩy 
+
+---
+
+## 🌟 Chức năng nổi bật
+
+- **Xử lý nhập sai dữ liệu, đăng kí**
+- **Tìm kiếm người đọc, giáo trình qua mã số, tên**
+- **Hiển thị dữ liệu chi tiết và rõ ràng dưới giao diện console**
+
+---
 
 ## ⚙️ Cài đặt & Chạy
 
@@ -116,7 +171,14 @@ cd OOP_N02_T3_2_2025_Group1
 # Mở project bằng IDE hoặc:
 # javac src/*.java
 # java Main
+---
+## 📚 Tài liệu tham khảo
 
+- Slide bài giảng môn Lập trình Hướng Đối Tượng – GVHD: TS.Nguyễn Lệ Thu
+- Java Docs – Oracle
+- Stack Overflow – Community
+
+---
 
 
 

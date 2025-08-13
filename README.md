@@ -226,9 +226,9 @@ Hành vi: markReturned(Date), isOverdue(Date)
 
 git clone https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1.git
 cd OOP_N02_T3_2_2025_Group1
- Mở project bằng IDE hoặc:
- javac src/*.java
- java Main
+Mở project bằng IDE hoặc:
+- javac src/*.java
+- java Main
 ---
 ## 📚 Tài liệu tham khảo
 

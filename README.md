@@ -198,7 +198,7 @@ Hành vi: markReturned(Date), isOverdue(Date)
 ---
 
 ## 🖼️ Giao diện chương trình (Console)
-![giaodien](..main/images/Screenshot 2025-08-14 040714.png)
+![Activity Diagram ](../main/images/giaodien.png)
 
 ## 🌟 Chức năng nổi bật
 

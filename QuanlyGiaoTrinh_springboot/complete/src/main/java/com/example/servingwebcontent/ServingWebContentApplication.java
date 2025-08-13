@@ -14,22 +14,23 @@ import com.example.servingwebcontent.test.TestReturnProcess;
 @SpringBootApplication
 public class ServingWebContentApplication {
 
-   public static void main(String[] args) {
-    try {
+    public static void main(String[] args) {
         SpringApplication.run(ServingWebContentApplication.class, args);
-      // System.out.println("=== Chạy TEST ===");
-      // TestBookSearch.test();
-      // TestLoanManager.test(args); 
-      // TestRegisterReader.test();
-      // TestReturnProcess.test();
-      // TestLibraryBook.test();
-      // TestLibraryReader.test();
-      // TestLibraryLoan.test();
-      // System.out.println("=== KẾT THÚC TEST ===");
-       System.exit(0);
-      
-    } catch (Exception e) {
-        e.printStackTrace();
+
+        new Thread(() -> {
+            try {
+                System.out.println("=== Chạy TEST ===");
+                TestBookSearch.test();
+                TestLoanManager.test(args);
+                TestRegisterReader.test();
+                TestReturnProcess.test();
+                TestLibraryBook.test();
+                TestLibraryReader.test();
+                TestLibraryLoan.test();
+                System.out.println("=== KẾT THÚC TEST ===");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
-}
 }

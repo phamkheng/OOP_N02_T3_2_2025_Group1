@@ -3,174 +3,141 @@ package com.example.servingwebcontent.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-import com.example.servingwebcontent.Model.Loan;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.example.servingwebcontent.Database.LoanAiven;
 import com.example.servingwebcontent.Model.Book;
+import com.example.servingwebcontent.Model.Loan;
 import com.example.servingwebcontent.Model.Reader;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/loans")
 public class LoanController {
 
-    private final LibraryLoan libraryLoan;
-    private final LoanManager loanManager;
-    private final LibraryReader readerManager;
-    private final LibraryBook bookManager;
-
-    public LoanController() {
-        this.libraryLoan = new LibraryLoan();
-        this.readerManager = new LibraryReader();
-        this.bookManager = new LibraryBook();
-        this.loanManager = new LoanManager(readerManager, bookManager);
-    }
-
     @GetMapping("")
-    public String loanManagement(Model model) {
-        model.addAttribute("loans", libraryLoan.listLoans);
-        return "loan-management";
-    }
-
-    @PostMapping("/add")
-    @ResponseBody
-    public ResponseEntity<Map<String, Object>> addLoan(
-            @RequestParam String loanID,
-            @RequestParam String readerID,
-            @RequestParam String bookID,
-            @RequestParam String borrowDate,
-            @RequestParam String dueDate) {
-
-        Map<String, Object> response = new HashMap<>();
-
+    public String listLoans(Model model) {
         try {
-            Reader reader = readerManager.listReaders.stream()
-                    .filter(r -> r.readerID.equals(readerID))
-                    .findFirst()
-                    .orElse(null);
-
-            if (reader == null) {
-                response.put("Thành công", false);
-                response.put("message", "Không tìm thấy độc giả với ID: " + readerID);
-                return ResponseEntity.badRequest().body(response);
+            System.out.println("=== LOADING LOANS LIST ===");
+            LoanAiven la = new LoanAiven();
+            ArrayList<Loan> loans = la.loanAivenList();
+            System.out.println("Loaded " + loans.size() + " loans from database");
+            
+            for (int i = 0; i < loans.size(); i++) {
+                Loan loan = loans.get(i);
+                System.out.println("Loan " + i + ": " + loan.loanID + " - " + 
+                                 (loan.book != null ? loan.book.title : "null book") + " - " + 
+                                 (loan.reader != null ? loan.reader.name : "null reader"));
             }
-
-            Book book = bookManager.listBooks.stream()
-                    .filter(b -> b.bookID.equals(bookID) && b.quantity > 0)
-                    .findFirst()
-                    .orElse(null);
-
-            if (book == null) {
-                response.put("Thành công", false);
-                response.put("message", "Sách không tồn tại hoặc đã hết với ID: " + bookID);
-                return ResponseEntity.badRequest().body(response);
-            }
-
-            boolean loanExists = libraryLoan.listLoans.stream()
-                    .anyMatch(l -> l.loanID.equals(loanID));
-
-            if (loanExists) {
-                response.put("Thành công", false);
-                response.put("message", "ID phiếu mượn đã tồn tại: " + loanID);
-                return ResponseEntity.badRequest().body(response);
-            }
-
-            Loan newLoan = new Loan(loanID, book, reader, borrowDate, dueDate);
-            libraryLoan.addLoan(newLoan);
-            book.quantity--;
-
-            response.put("Thành công", true);
-            response.put("message", "Thêm phiếu mượn thành công!");
-            response.put("loan", createLoanResponse(newLoan));
-
-            return ResponseEntity.ok(response);
-
+            
+            model.addAttribute("ListOfLoans", loans);
+            return "loanlist";
         } catch (Exception e) {
-            response.put("Thành công", false);
-            response.put("message", "Lỗi khi thêm phiếu mượn: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            System.out.println("ERROR loading loans: " + e.getMessage());
+            e.printStackTrace();
+            model.addAttribute("ListOfLoans", new ArrayList<Loan>());
+            return "loanlist";
         }
     }
 
-    @DeleteMapping("/delete/{loanID}")
-    @ResponseBody
-    public ResponseEntity<Map<String, Object>> deleteLoan(@PathVariable String loanID) {
-        Map<String, Object> response = new HashMap<>();
+    @GetMapping("/add")
+    public String addLoanForm(Model model) {
+        model.addAttribute("loan", new Loan("", new Book("", "", ""), new Reader("", "", "", ""), "", ""));
+        return "loan-form";
+    }
 
+    @PostMapping("/save")
+    public String saveLoan(@RequestParam String loanID,
+                          @RequestParam String bookID,
+                          @RequestParam String bookTitle,
+                          @RequestParam String readerID,
+                          @RequestParam String readerName,
+                          @RequestParam String borrowDate,
+                          @RequestParam String dueDate,
+                          RedirectAttributes redirectAttributes) {
         try {
-            Loan loanToDelete = libraryLoan.listLoans.stream()
-                    .filter(loan -> loan.loanID.equals(loanID))
+            System.out.println("=== SAVING LOAN ===");
+            System.out.println("Loan ID: " + loanID);
+            System.out.println("Book: " + bookID + " - " + bookTitle);
+            System.out.println("Reader: " + readerID + " - " + readerName);
+            
+            Book book = new Book(bookID, bookTitle, "Tác giả");
+            Reader reader = new Reader(readerID, readerName, "", "");
+            Loan loan = new Loan(loanID, book, reader, borrowDate, dueDate);
+            loan.status = "Borrowed";
+            
+            LoanAiven la = new LoanAiven();
+            la.insertLoan(loan);
+            
+            System.out.println("Loan saved to database successfully!");
+            redirectAttributes.addFlashAttribute("successMessage", "Thêm thành công: " + loanID);
+        } catch (Exception e) {
+            System.out.println("ERROR saving loan: " + e.getMessage());
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("errorMessage", "Lỗi: " + e.getMessage());
+        }
+        return "redirect:/loans";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editLoanForm(@PathVariable String id, Model model) {
+        try {
+            LoanAiven la = new LoanAiven();
+            ArrayList<Loan> loans = la.loanAivenList();
+            Loan loanToEdit = loans.stream()
+                    .filter(l -> l.loanID.equals(id))
                     .findFirst()
                     .orElse(null);
-
-            if (loanToDelete == null) {
-                response.put("Thành công", false);
-                response.put("message", "Không tìm thấy phiếu mượn với ID: " + loanID);
-                return ResponseEntity.notFound().build();
-            }
-
-            if (loanToDelete.returnDate == null && loanToDelete.book != null) {
-                loanToDelete.book.quantity++;
-            }
-
-            libraryLoan.deleteLoan(loanID);
-
-            response.put("Thành công", true);
-            response.put("message", "Xóa phiếu mượn thành công!");
-            response.put("deletedLoanID", loanID);
-
-            return ResponseEntity.ok(response);
-
+            model.addAttribute("loan", loanToEdit);
+            return "loan-form";
         } catch (Exception e) {
-            response.put("Thành công", false);
-            response.put("message", "Lỗi khi xóa phiếu mượn: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            e.printStackTrace();
+            return "redirect:/loans";
         }
     }
 
-    @GetMapping("/list")
-    @ResponseBody
-    public ResponseEntity<Map<String, Object>> getAllLoans() {
-        Map<String, Object> response = new HashMap<>();
-
+    @PostMapping("/update")
+    public String updateLoan(@RequestParam String loanID,
+                           @RequestParam String bookID,
+                           @RequestParam String bookTitle,
+                           @RequestParam String readerID,
+                           @RequestParam String readerName,
+                           @RequestParam String borrowDate,
+                           @RequestParam String dueDate,
+                           @RequestParam(required = false) String returnDate,
+                           @RequestParam(required = false) String status,
+                           RedirectAttributes redirectAttributes) {
         try {
-            ArrayList<Map<String, Object>> loanList = new ArrayList<>();
-            for (Loan loan : libraryLoan.listLoans) {
-                loanList.add(createLoanResponse(loan));
+            Book book = new Book(bookID, bookTitle, "Tác giả");
+            Reader reader = new Reader(readerID, readerName, "", "");
+            Loan loan = new Loan(loanID, book, reader, borrowDate, dueDate);
+            
+            if (returnDate != null && !returnDate.isEmpty()) {
+                loan.returnDate = returnDate;
             }
-
-            response.put("Thành công", true);
-            response.put("loans", loanList);
-            response.put("total", loanList.size());
-
-            return ResponseEntity.ok(response);
-
+            if (status != null && !status.isEmpty()) {
+                loan.status = status;
+            } else {
+                loan.status = "Borrowed";
+            }
+            
+            LoanAiven la = new LoanAiven();
+            la.updateLoan(loan);
+            redirectAttributes.addFlashAttribute("successMessage", "Cập nhật thành công");
         } catch (Exception e) {
-            response.put("Thành công", false);
-            response.put("message", "Lỗi khi lấy danh sách phiếu mượn: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+            redirectAttributes.addFlashAttribute("errorMessage", "Lỗi: " + e.getMessage());
         }
+        return "redirect:/loans";
     }
 
-    @GetMapping("/list")
-    public String showLoanListPage(Model model) {
-        model.addAttribute("loans", libraryLoan.listLoans);
-        return "loan-list"; // loan-list.html trong templates
-    }
-
-    private Map<String, Object> createLoanResponse(Loan loan) {
-        Map<String, Object> loanData = new HashMap<>();
-        loanData.put("loanID", loan.loanID);
-        loanData.put("bookTitle", loan.book != null ? loan.book.getTitle() : "N/A");
-        loanData.put("bookID", loan.book != null ? loan.book.bookID : "N/A");
-        loanData.put("readerName", loan.reader != null ? loan.reader.name : "N/A");
-        loanData.put("readerID", loan.reader != null ? loan.reader.readerID : "N/A");
-        loanData.put("borrowDate", loan.borrowDate);
-        loanData.put("dueDate", loan.dueDate);
-        loanData.put("returnDate", loan.returnDate);
-        loanData.put("status", loan.status);
-        return loanData;
+    @GetMapping("/delete/{id}")
+    public String deleteLoan(@PathVariable String id, RedirectAttributes redirectAttributes) {
+        try {
+            LoanAiven la = new LoanAiven();
+            la.deleteLoan(id);
+            redirectAttributes.addFlashAttribute("successMessage", "Xóa thành công");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Lỗi: " + e.getMessage());
+        }
+        return "redirect:/loans";
     }
 }

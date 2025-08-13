@@ -2,7 +2,7 @@ package com.example.servingwebcontent.test;
 import java.util.Scanner;
 
 import com.example.servingwebcontent.Model.Reader;
-import com.example.servingwebcontent.Controller.LibraryReader;
+import com.example.servingwebcontent.service.LibraryReader;
 
 public class TestLibraryReader {
     public static void test() {

@@ -57,5 +57,10 @@ public class Book {
     public void display() {
         System.out.println("ID: " + bookID + ", Title: " + title + ", Author: " + author + ", Available: " + isAvailable +", Quantity: " + quantity);
     }
+
+    public void setQuantity(int int1) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setQuantity'");
+    }
 }
 

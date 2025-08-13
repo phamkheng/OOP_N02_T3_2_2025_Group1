@@ -1,21 +1,26 @@
 package com.example.servingwebcontent.Component;
 
+import com.example.servingwebcontent.Model.Book;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import com.example.servingwebcontent.Model.Book;
 
 public class WriteBookToFile {
-    public void toFile(ArrayList<Book> books) {
+    public void toFile(Book book) {
         try {
-            int i = books.size() - 1;
-            FileWriter writer = new FileWriter("./complete/File/BookList.txt", true);
-            writer.append("\n");
-            writer.write(books.get(i).title);
-            writer.write(books.get(i).author);
-            writer.close();
+          
+            FileWriter writer = new FileWriter("booklist.txt", true); 
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            
+            
+            bufferedWriter.write(book.bookID + "," + book.title + "," + book.author + "," + 
+                              book.isAvailable + "," + book.quantity);
+            bufferedWriter.newLine();
+            
+            bufferedWriter.close();
+            System.out.println("Đã ghi sách vào file: " + book.title);
         } catch (IOException e) {
-            System.out.println("Error at write to File!");
+            System.out.println("Lỗi khi ghi vào file: " + e.getMessage());
             e.printStackTrace();
         }
     }

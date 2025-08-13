@@ -1,8 +1,8 @@
 package com.example.servingwebcontent.test;
-import com.example.servingwebcontent.Controller.ReturnProcess;
 import com.example.servingwebcontent.Model.Book;
 import com.example.servingwebcontent.Model.Loan;
 import com.example.servingwebcontent.Model.Reader;
+import com.example.servingwebcontent.service.ReturnProcess;
 
 public class TestReturnProcess {
 

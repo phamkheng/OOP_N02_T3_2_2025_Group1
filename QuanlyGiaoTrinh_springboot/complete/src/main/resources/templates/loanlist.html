@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -9,6 +10,69 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.5/dist/bootstrap-table.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header-section {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 30px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .status-borrowed {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        .status-returned {
+            background-color: #28a745;
+            color: white;
+        }
+        .status-overdue {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-action {
+            margin: 0 2px;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+        .search-box {
+            position: relative;
+        }
+        .search-box input {
+            padding-right: 40px;
+        }
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
@@ -25,52 +89,125 @@
         </div>
     </nav>
     
-    <div class="container mt-3">
-        <div th:if="${successMessage}" class="alert alert-success" role="alert">
-            <span th:text="${successMessage}"></span>
-        </div>
-        <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
-            <span th:text="${errorMessage}"></span>
+    <div class="container mt-4">
+        <!-- Header Section -->
+        <div class="header-section text-center">
+            <h1 class="display-4"><i class="bi bi-book"></i> Quản Lý Mượn Trả</h1>
+            <p class="lead">Hệ thống quản lý mượn trả sách thư viện</p>
         </div>
         
-        <div class="mb-3">
-            <a href="/"><button type="button" class="btn btn-outline-info">Trang Chủ</button></a>
-            <a href="/loans/add" class="btn btn-primary ms-2"><i class="bi bi-plus-circle"></i> Thêm Phiếu Mượn</a>
+        <!-- Alert Messages -->
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> <span th:text="${successMessage}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div th:if="${errorMessage}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i> <span th:text="${errorMessage}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons d-flex justify-content-between align-items-center">
+            <div>
+                <a href="/" class="btn btn-outline-info">
+                    <i class="bi bi-house-door"></i> Trang Chủ
+                </a>
+                <a href="/loans/add" class="btn btn-primary ms-2">
+                    <i class="bi bi-plus-circle"></i> Thêm Phiếu Mượn
+                </a>
+            </div>
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm..." id="searchInput">
+                    <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Table -->
+        <div class="table-container">
+            <table class="table table-striped table-hover mb-0" id="loanTable">
+                <thead>
+                    <tr>
+                        <th><i class="bi bi-hash"></i> Mã Mượn</th>
+                        <th><i class="bi bi-person-vcard"></i> Mã Độc Giả</th>
+                        <th><i class="bi bi-person"></i> Tên Độc Giả</th>
+                        <th><i class="bi bi-book"></i> Mã Sách</th>
+                        <th><i class="bi bi-book"></i> Tên Sách</th>
+                        <th><i class="bi bi-calendar-check"></i> Ngày Mượn</th>
+                        <th><i class="bi bi-calendar-x"></i> Ngày Trả</th>
+                        <th><i class="bi bi-check-circle"></i> Trạng Thái</th>
+                        <th><i class="bi bi-gear"></i> Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="loan : ${ListOfLoans}">
+                        <td th:text="${loan.loanID}" class="fw-bold">LoanID</td>
+                        <td th:text="${loan.reader.readerID}">ReaderID</td>
+                        <td th:text="${loan.reader.name}">Reader Name</td>
+                        <td th:text="${loan.book.bookID}">BookID</td>
+                        <td th:text="${loan.book.title}">Book Title</td>
+                        <td th:text="${loan.borrowDate}">Borrow Date</td>
+                        <td th:text="${loan.returnDate ?: 'Chưa trả'}">Return Date</td>
+                        <td>
+                            <span th:if="${loan.status == 'Borrowed'}" class="status-badge status-borrowed">
+                                <i class="bi bi-book"></i> Đang mượn
+                            </span>
+                            <span th:if="${loan.status == 'Returned'}" class="status-badge status-returned">
+                                <i class="bi bi-check-circle"></i> Đã trả
+                            </span>
+                            <span th:if="${loan.status == 'Overdue'}" class="status-badge status-overdue">
+                                <i class="bi bi-exclamation-triangle"></i> Quá hạn
+                            </span>
+                        </td>
+                        <td>
+                            <a th:href="@{'/reports/loan-detail/' + ${loan.loanID}}" class="btn btn-info btn-action btn-sm" title="Xem chi tiết">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a th:href="@{'/loans/edit/' + ${loan.loanID}}" class="btn btn-warning btn-action btn-sm" title="Chỉnh sửa">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a th:href="@{'/loans/delete/' + ${loan.loanID}}" 
+                               onclick="return confirm('Xác nhận xóa phiếu mượn này?')" 
+                               class="btn btn-danger btn-action btn-sm" title="Xóa">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Empty State -->
+            <div th:if="${ListOfLoans == null || ListOfLoans.isEmpty()}" class="empty-state">
+                <i class="bi bi-inbox display-1 text-muted"></i>
+                <h4 class="text-muted">Không có phiếu mượn nào</h4>
+                <p class="text-muted">Hãy thêm phiếu mượn mới bằng cách nhấn nút "Thêm Phiếu Mượn"</p>
+                <a href="/loans/add" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Thêm Phiếu Mượn
+                </a>
+            </div>
         </div>
     </div>
-
-    <table class="table table-striped">
-        <thead>
-            <tr><p style="font-size:xx-large; color:darkcyan ;text-align: center;">📋 Quản Lý Mượn Trả</p></tr>
-            <tr>
-                <th><i class="bi bi-hash"></i> Mã Mượn</th>
-                <th><i class="bi bi-person-vcard"></i> Mã Độc Giả</th>
-                <th><i class="bi bi-book"></i> Mã Sách</th>
-                <th><i class="bi bi-calendar-check"></i> Ngày Mượn</th>
-                <th><i class="bi bi-calendar-x"></i> Ngày Trả</th>
-                <th><i class="bi bi-check-circle"></i> Trạng Thái</th>
-                <th><i class="bi bi-brush"></i> Sửa</th>
-                <th><i class="bi bi-calendar2-x"></i> Xóa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="loan : ${ListOfLoans}">
-                <td data-sortable="true"><span th:text="${loan.loanID}">LoanID</span></td>
-                <td th:text="${loan.reader.readerID}">ReaderID</td>
-                <td><span th:text="${loan.book.bookID}">BookID</span></td>
-                <td><span th:text="${loan.borrowDate}">Borrow Date</span></td>
-                <td><span th:text="${loan.returnDate}">Return Date</span></td>
-                <td><span th:text="${loan.status}">Status</span></td>
-                <td>
-                    <a th:href="@{'/loans/edit/' + ${loan.loanID}}" class="btn btn-success bi bi-brush"></a>
-                </td>
-                <td>
-                    <a th:href="@{'/loans/delete/' + ${loan.loanID}}" 
-                       onclick="return confirm('Xác nhận xóa phiếu mượn này?')" 
-                       class="btn btn-danger bi bi-calendar2-x"></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    
+    <script>
+        $(document).ready(function() {
+            // Search functionality
+            $('#searchButton').click(function() {
+                var searchText = $('#searchInput').val().toLowerCase();
+                $('#loanTable tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+                });
+            });
+            
+            // Enter key for search
+            $('#searchInput').keypress(function(e) {
+                if(e.which == 13) {
+                    $('#searchButton').click();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

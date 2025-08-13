@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Phiếu Mượn Quá Hạn</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center text-danger">
+            <i class="bi bi-exclamation-triangle"></i> Danh Sách Phiếu Mượn Quá Hạn
+        </h2>
+        
+        <div class="alert alert-warning">
+            <i class="bi bi-info-circle"></i> Hiển thị tất cả các phiếu mượn đã quá hạn trả sách.
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5><i class="bi bi-list-ul"></i> Phiếu Mượn Quá Hạn</h5>
+                <button class="btn btn-light btn-sm float-end" onclick="location.reload()">
+                    <i class="bi bi-arrow-clockwise"></i> Làm Mới
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Mã Phiếu</th>
+                                <th>Độc Giả</th>
+                                <th>Liên Hệ</th>
+                                <th>Sách</th>
+                                <th>Ngày Mượn</th>
+                                <th>Ngày Hẹn Trả</th>
+                                <th>Số Ngày Quá Hạn</th>
+                                <th>Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="loan : ${overdueLoans}">
+                                <td th:text="${loan.loanID}"></td>
+                                <td th:text="${loan.reader.name}"></td>
+                                <td>
+                                    <div th:text="${loan.reader.email}"></div>
+                                    <div th:text="${loan.reader.phone}"></div>
+                                </td>
+                                <td th:text="${loan.book.title}"></td>
+                                <td th:text="${loan.borrowDate}"></td>
+                                <td th:text="${loan.dueDate}"></td>
+                                <td>
+                                    <span class="badge bg-danger" th:text="${daysOverdueMap[loan.loanID] + ' ngày'}"></span>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/loans/detail/' + ${loan.loanID}}" class="btn btn-sm btn-info">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="alert alert-success" th:if="${overdueLoans != null && overdueLoans.isEmpty()}">
+                    <i class="bi bi-check-circle"></i> Không có phiếu mượn nào quá hạn!
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-3">
+            <a href="/loans" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay Lại Danh Sách Phiếu Mượn
+            </a>
+        </div>
+    </div>
+</body>
+</html>

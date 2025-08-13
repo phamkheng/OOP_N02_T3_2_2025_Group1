@@ -1,6 +1,6 @@
 package com.example.servingwebcontent.test;
-import com.example.servingwebcontent.Controller.BookSearch;
 import com.example.servingwebcontent.data.BookList;
+import com.example.servingwebcontent.service.BookSearch;
 public class TestBookSearch {
     public static void test() {
         BookList bookList = new BookList();

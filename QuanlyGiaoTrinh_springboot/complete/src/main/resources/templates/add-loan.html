@@ -84,13 +84,13 @@
     </div>
 
     <script>
-        // Fix URL :8080 issue
+  
         if (window.location.href.includes(':8080') && !window.location.port) {
             const newUrl = window.location.href.replace(':8080', '');
             window.history.replaceState({}, '', newUrl);
         }
         
-        // Auto redirect form submissions
+     
         document.addEventListener('DOMContentLoaded', function() {
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {

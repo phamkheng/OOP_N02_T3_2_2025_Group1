@@ -1,67 +1,219 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Danh Sách Sách - Thư Viện</title>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.5/dist/bootstrap-table.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.5/dist/bootstrap-table.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Danh Sách Sách - Thư Viện Giáo Trình</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 15px;
+        }
+        .search-box {
+            border-radius: 30px;
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+        }
+        .btn-search {
+            border-radius: 0 30px 30px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+        .table th {
+            background-color: #f8f9fa;
+            border-top: none;
+        }
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .available {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .borrowed {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .action-buttons .btn {
+            margin-right: 5px;
+            border-radius: 20px;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-        <div class="bg-dark p-4">
-          <h5 class="text-body-emphasis h4">Thư Viện Giáo Trình</h5>
-          <span class="text-body-secondary">OOP Introduction.</span>
-        </div>
-    </div>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="/">
+                <i class="fas fa-book-open"></i> Thư Viện Giáo Trình
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/booklist"><i class="fas fa-list"></i> Danh Sách Sách</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/readerlist"><i class="fas fa-users"></i> Độc Giả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/loanlist"><i class="fas fa-clipboard-list"></i> Mượn Trả</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <a href="/"><button type="button" class="btn btn-outline-info">Trang Chủ</button></a>
-
-        <div class="container mt-3 mb-3">
-        <a th:href="@{/add-book}" class="btn btn-primary">Thêm Sách Mới</a>
+    <div class="container mt-4">
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h4 class="mb-0"><i class="fas fa-books"></i> Danh Sách Sách</h4>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <a th:href="@{/add-book}" class="btn btn-light">
+                            <i class="fas fa-plus"></i> Thêm Sách Mới
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+               
+                <div th:if="${message}" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i> <span th:text="${message}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                
+                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> <span th:text="${error}"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                
+                
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <form th:action="@{/searchBook}" method="get" class="d-flex">
+                            <input type="text" name="keyword" class="form-control search-box" placeholder="Tìm kiếm theo tên sách hoặc tác giả..." required>
+                            <button type="submit" class="btn btn-primary btn-search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-sort"></i> Sắp xếp
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                <li><a class="dropdown-item" href="#">Theo tên A-Z</a></li>
+                                <li><a class="dropdown-item" href="#">Theo tên Z-A</a></li>
+                                <li><a class="dropdown-item" href="#">Theo tác giả</a></li>
+                                <li><a class="dropdown-item" href="#">Số lượng nhiều nhất</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-barcode"></i> Mã Sách</th>
+                                <th><i class="fas fa-book"></i> Tên Sách</th>
+                                <th><i class="fas fa-user-edit"></i> Tác Giả</th>
+                                <th><i class="fas fa-check-circle"></i> Trạng Thái</th>
+                                <th><i class="fas fa-sort-numeric-up"></i> Số Lượng</th>
+                                <th><i class="fas fa-cogs"></i> Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                            <tr th:if="${ListOfBooks == null || ListOfBooks.empty}">
+                                <td colspan="6" class="text-center">
+                                    <div class="alert alert-warning">
+                                        <i class="fas fa-exclamation-triangle"></i> Không có sách nào trong thư viện.
+                                        <a th:href="@{/add-book}" class="btn btn-sm btn-primary ms-2">Thêm sách mới</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr th:each="book : ${ListOfBooks}">
+                                <td><span th:text="${book.bookID}">BookID</span></td>
+                                <td><strong th:text="${book.title}">Book Title</strong></td>
+                                <td><span th:text="${book.author}">Author</span></td>
+                                <td>
+                                    <span th:if="${book.isAvailable}" class="status-badge available">
+                                        <i class="fas fa-check"></i> Có sẵn
+                                    </span>
+                                    <span th:unless="${book.isAvailable}" class="status-badge borrowed">
+                                        <i class="fas fa-times"></i> Đã mượn
+                                    </span>
+                                </td>
+                                <td><span th:text="${book.quantity}">Quantity</span></td>
+                                <td class="action-buttons">
+                                  
+                                    <a th:href="@{/edit-book/{id}(id=${book.bookID})}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </a>
+                                
+                                    <form th:action="@{/deleteBook/{id}(id=${book.bookID})}" method="post" style="display: inline;">
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa cuốn sách này không?');">
+                                            <i class="fas fa-trash"></i> Xóa
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+             
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Trước</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Sau</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-
-    <table class="table table-striped">
-        <thead>
-            <tr><p style="font-size:xx-large; color:darkcyan ;text-align: center;">📚 Danh Sách Sách</p></tr>
-            <tr>
-                <th><i class="bi bi-book"></i> Mã Sách</th>
-                <th><i class="bi bi-bookmark"></i> Tên Sách</th>
-                <th><i class="bi bi-person"></i> Tác Giả</th>
-                <th><i class="bi bi-check-circle"></i> Trạng Thái</th>
-                <th><i class="bi bi-hash"></i> Số Lượng</th>
-                <th><i class="bi bi-brush"></i> Sửa</th>
-                <th><i class="bi bi-calendar2-x"></i> Xóa</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="book : ${ListOfBooks}">
-                <td data-sortable="true"><span th:text="${book.bookID}">BookID</span></td>
-                <td><span th:text="${book.title}">Book Title</span></td>
-                <td><span th:text="${book.author}">Author</span></td>
-                <td><span th:text="${book.isAvailable ? 'Có sẵn' : 'Đã mượn'}">Status</span></td>
-                <td><span th:text="${book.quantity}">Quantity</span></td>
-                <td>
-                    <a th:href="@{/editBook/{id}(id=${book.bookID})}" class="btn btn-success bi bi-brush"></a>
-                </td>
-                <td>
-                    <a th:href="@{/deleteBook/{id}(id=${book.bookID})}" class="btn btn-danger bi bi-calendar2-x" onclick="return confirm('Bạn có chắc chắn muốn xóa cuốn sách này không?');"></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>

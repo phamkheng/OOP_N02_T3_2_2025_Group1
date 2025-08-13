@@ -2,11 +2,11 @@ package com.example.servingwebcontent.test;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import com.example.servingwebcontent.Controller.LibraryBook;
-import com.example.servingwebcontent.Controller.LibraryReader;
-import com.example.servingwebcontent.Controller.LoanManager;
 import com.example.servingwebcontent.Model.Book;
 import com.example.servingwebcontent.Model.Reader;
+import com.example.servingwebcontent.service.LibraryBook;
+import com.example.servingwebcontent.service.LibraryReader;
+import com.example.servingwebcontent.service.LoanManager;
 
 public class TestLoanManager {
     public static void test(String[] args) throws Exception {

@@ -1,8 +1,8 @@
 package com.example.servingwebcontent.test;
-import com.example.servingwebcontent.Controller.LibraryLoan;
 import com.example.servingwebcontent.Model.Book;
 import com.example.servingwebcontent.Model.Loan;
 import com.example.servingwebcontent.Model.Reader;
+import com.example.servingwebcontent.service.LibraryLoan;
 
 public class TestLibraryLoan {
     public static void test() {

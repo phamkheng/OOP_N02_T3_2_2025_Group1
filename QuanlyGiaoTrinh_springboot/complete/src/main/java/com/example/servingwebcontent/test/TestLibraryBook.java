@@ -1,6 +1,6 @@
 package com.example.servingwebcontent.test;
-import com.example.servingwebcontent.Controller.LibraryBook;
 import com.example.servingwebcontent.Model.Book;
+import com.example.servingwebcontent.service.LibraryBook;
 public class TestLibraryBook {
     public static Book b1 = new Book("B001", "OOP", "Viet Hung");
     public static void test() {

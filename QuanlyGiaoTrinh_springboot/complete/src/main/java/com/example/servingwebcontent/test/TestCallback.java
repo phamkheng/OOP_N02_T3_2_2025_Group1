@@ -1,9 +1,9 @@
 package com.example.servingwebcontent.test;
-import com.example.servingwebcontent.Controller.Callback;
-import com.example.servingwebcontent.Controller.LibraryManager;
-import com.example.servingwebcontent.Controller.Interfaces.LibraryInterface;
 import com.example.servingwebcontent.Model.Book;
 import com.example.servingwebcontent.Model.Reader;
+import com.example.servingwebcontent.service.Callback;
+import com.example.servingwebcontent.service.LibraryManager;
+import com.example.servingwebcontent.service.Interfaces.LibraryInterface;
 
 public class TestCallback {
     public static void test() {

@@ -62,6 +62,10 @@
   - Đăng ký người đọc
   - Hiển thị thông tin
   - Xóa người đọc khỏi danh sách
+  - Thêm người đọc mớimới
+  -Chỉnh sửa thông tin
+  -Tìm kiếm người đọc
+  
 
 ### 2. 🧾 Giáo trình (`Book`)
 - **Thuộc tính**: ID, tên, tác giả, trang thái (có sẵn/ trống), số lượng.
@@ -70,12 +74,16 @@
   - Hiển thị danh sách giáo trình
   - Tìm kiếm giáo trình
   - Xóa giáo trình khỏi danh sách
+  - Cập nhật số
+  - Quản lý sách có sẵn để mượn hoặc đang được mượn
 
 ### 3. 📦 Dịch vụ mượn/trả (`Loan`)
 - **Thuộc tính**: ID, book, reader, ngày mượn, ngày trả, trạng thái
 - **Chức năng**:
-  - Hiển thị thông tin
-  - Cập nhật sau khi mượn/trả
+  Mượn sách: Tạo phiếu mượn với thông tin sách, độc giả, ngày mượn và ngày hẹn trả
+  Quản lý: Cập nhật, chỉnh sửa hoặc xóa phiếu mượn khi cần
+  Trả sách: Xử lý trả sách, cập nhật trạng thái và ngày trả
+  Tìm kiếm: Tìm kiếm phiếu mượn theo nhiều tiêu chí khác nhau
 
 ---
 ## 🗂️ Cấu trúc thư mục

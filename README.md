@@ -1,15 +1,28 @@
 # Textbook Library Management System 🎉
 
+<div id="top" align="center">
+
+<!-- Banner -->
+<img src="images/—Pngtree—3d animation boy and girl_16531218.jpg" alt="Library Banner" width="60%">
+
+<!-- Tiêu đề màu đỏ -->
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF4B4B&center=true&vCenter=true&width=700&height=80&lines=Chào+mừng+đến+với+ứng+dụng+quản+lí+thư+viện+giáo+trình;Nhóm+08+OOP_N02_T3_2_2025_" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&pause=1000&color=FF4B4B&center=true&vCenter=true&width=1200&height=80&lines=Chào+mừng+đến+với+Ứng+Dụng+Quản+Lý+Thư+Viện+Giáo+Trình+Học+Và+Giảng+Dạy;Nhóm+08+OOP_N02_T3_2_2025" alt="Typing SVG" />
 </p>
 
+
+<em>Ứng dụng giúp quản lý thư viện giáo trình hiệu quả, tiện dụng và dễ sử dụng.</em>
+
+<!-- Badges -->
 <p align="center">
-  <a href="https://github.com/phamkheng/OOP_N02_T3_2_2025_Group1">
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/devbadge.gif" width="50" alt="Developer Badge" />
-    <img src="https://raw.githubusercontent.com/acervenky/animated-github-badges/master/assets/contribbadge.gif" width="50" alt="Contributor Badge" />
-  </a>
+  <a href="#"><img src="https://img.shields.io/github/actions/workflow/status/eli64s/readme-ai/release-pipeline.yml?logo=githubactions&label=CI&logoColor=white&color=4169E1" alt="CI Status"></a>
+  <a href="#"><img src="https://img.shields.io/codecov/c/github/eli64s/readme-ai?logo=codecov&logoColor=white&label=Coverage&color=5D4ED3" alt="Test Coverage"></a>
+  <a href="#"><img src="https://img.shields.io/pypi/v/readmeai?logo=Python&logoColor=white&label=PyPI&color=7934C5" alt="PyPI Version"></a>
+  <a href="#"><img src="https://img.shields.io/pepy/dt/readmeai?logo=PyPI&logoColor=white&label=Downloads&color=9400D3" alt="Total Downloads"></a>
+  <a href="#"><img src="https://img.shields.io/github/license/eli64s/readme-ai?logo=opensourceinitiative&logoColor=white&label=License&color=8A2BE2" alt="MIT License"></a>
 </p>
+
+</div>
 
 ---
 

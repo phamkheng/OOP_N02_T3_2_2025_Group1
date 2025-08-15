@@ -111,12 +111,14 @@ Project/
 │   │   │   │   ├──java/com/example/servingwebcontent/
 │   │   │   │   │   ├──Component
 │   │   │   │   │   ├──Controller                                              # Các controller
-│   │   │   │   │   ├──Database                                                # Các service, kết nối, truy vấn cơ sở dữ liệu
+|   |   |   |   |   ├──Service                                                 # Các service, kết nối, truy vấn cơ sở dữ liệu
+│   │   │   │   │   ├──Database                                               
 │   │   │   │   │   ├──Model                                                   # Các class mô hình dữ liệu
 │   │   │   │   │      ├──Book.java
 │   │   │   │   │      ├──Reader.java
 │   │   │   │   │      ├──Loan.java
 │   │   │   │   │   ├──test                                                    # File test 
+|   |   |   |   |   ├──HomeController.java                                    
 │   │   │   │   │   ├──ServingWebContentApplication.java                       # Main() để chạy ứng dụng
 │   │   │   │   ├──resources/
 │   │   │   │        ├── static/                                               
